@@ -25,7 +25,7 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: decoder.c,v 1.52 2001/10/05 17:39:20 eraser Exp $
+ * $Id: decoder.c,v 1.53 2001/10/26 11:57:00 menno Exp $
  */
 
 #ifdef WIN32
@@ -350,7 +350,8 @@ int FAADAPI faacDecGetProgConfig(faacDecHandle hDecoder,
 int FAADAPI faacDecDecode(faacDecHandle hDecoder,
                           unsigned char *buffer,
                           unsigned long *bytesconsumed,
-                          short *sample_buffer)
+                          short *sample_buffer,
+                          unsigned long *samples)
 {
     unsigned char d_bytes[MAX_DBYTES];
     int i, j, ch, wn, ele_id;
@@ -538,6 +539,10 @@ int FAADAPI faacDecDecode(faacDecHandle hDecoder,
     faad_byte_align(&hDecoder->ld);
 
     *bytesconsumed = bit2byte(faad_get_processed_bits(&hDecoder->ld));
+    if (hDecoder->frameNum > 2)
+        *samples = 1024*mip->nch;
+    else
+        *samples = 0;
 
     /* no errors */
     return retCode;

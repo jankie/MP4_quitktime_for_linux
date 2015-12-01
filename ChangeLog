@@ -1,46 +1,775 @@
+2001-10-15  menno
+	* plugins/winamp3/aacpcm.cpp:
+	* plugins/winamp3/aacpcm.h:
+	* plugins/winamp3/cnv_aacpcm.cpp:
+	* plugins/winamp3/cnv_aacpcm.dsp:
+		Small changes to plugin
+
+2001-10-12  menno
+	* plugins/winamp3/aacpcm.cpp:
+		Now playing the whole file
+
+2001-10-11  menno
+	* plugins/winamp3/aacpcm.cpp:
+	* plugins/winamp3/cnv_aacpcm.dsp:
+		small fix
+
+	* plugins/winamp3/cnv_aacpcm.dsp:
+	* plugins/winamp3/sdk/attribs/attrbool.cpp:
+	* plugins/winamp3/sdk/attribs/attrbool.h:
+	* plugins/winamp3/sdk/attribs/attrcb.h:
+	* plugins/winamp3/sdk/attribs/attribute.cpp:
+	* plugins/winamp3/sdk/attribs/attribute.h:
+	* plugins/winamp3/sdk/attribs/attrint.cpp:
+	* plugins/winamp3/sdk/attribs/attrint.h:
+	* plugins/winamp3/sdk/attribs/attrstr.cpp:
+	* plugins/winamp3/sdk/attribs/attrstr.h:
+	* plugins/winamp3/sdk/attribs/cfgitem.h:
+	* plugins/winamp3/sdk/attribs/cfgitemi.cpp:
+	* plugins/winamp3/sdk/attribs/cfgitemi.h:
+	* plugins/winamp3/sdk/attribs/mem.cpp:
+	* plugins/winamp3/sdk/common/SimpleWndCreate.h:
+	* plugins/winamp3/sdk/common/autobitmap.cpp:
+	* plugins/winamp3/sdk/common/autobitmap.h:
+	* plugins/winamp3/sdk/common/basewnd.cpp:
+	* plugins/winamp3/sdk/common/basewnd.h:
+	* plugins/winamp3/sdk/common/bitlist.h:
+	* plugins/winamp3/sdk/common/bitmap.cpp:
+	* plugins/winamp3/sdk/common/bitmap.h:
+	* plugins/winamp3/sdk/common/blankwnd.cpp:
+	* plugins/winamp3/sdk/common/blankwnd.h:
+	* plugins/winamp3/sdk/common/blending.cpp:
+	* plugins/winamp3/sdk/common/blending.h:
+	* plugins/winamp3/sdk/common/bucketitem.cpp:
+	* plugins/winamp3/sdk/common/bucketitem.h:
+	* plugins/winamp3/sdk/common/buttbar.cpp:
+	* plugins/winamp3/sdk/common/buttbar.h:
+	* plugins/winamp3/sdk/common/buttwnd.cpp:
+	* plugins/winamp3/sdk/common/buttwnd.h:
+	* plugins/winamp3/sdk/common/canvas.cpp:
+	* plugins/winamp3/sdk/common/canvas.h:
+	* plugins/winamp3/sdk/common/clickwnd.cpp:
+	* plugins/winamp3/sdk/common/clickwnd.h:
+	* plugins/winamp3/sdk/common/common.cpp:
+	* plugins/winamp3/sdk/common/common.h:
+	* plugins/winamp3/sdk/common/compdb.h:
+	* plugins/winamp3/sdk/common/contwnd.cpp:
+	* plugins/winamp3/sdk/common/contwnd.h:
+	* plugins/winamp3/sdk/common/corehandle.cpp:
+	* plugins/winamp3/sdk/common/corehandle.h:
+	* plugins/winamp3/sdk/common/cwndtrack.h:
+	* plugins/winamp3/sdk/common/depend.h:
+	* plugins/winamp3/sdk/common/dispatch.h:
+	* plugins/winamp3/sdk/common/drag.h:
+	* plugins/winamp3/sdk/common/dropwnd.cpp:
+	* plugins/winamp3/sdk/common/dropwnd.h:
+	* plugins/winamp3/sdk/common/editwnd.cpp:
+	* plugins/winamp3/sdk/common/editwnd.h:
+	* plugins/winamp3/sdk/common/filename.cpp:
+	* plugins/winamp3/sdk/common/filename.h:
+	* plugins/winamp3/sdk/common/fontdef.h:
+	* plugins/winamp3/sdk/common/framewnd.cpp:
+	* plugins/winamp3/sdk/common/framewnd.h:
+	* plugins/winamp3/sdk/common/freelist.cpp:
+	* plugins/winamp3/sdk/common/freelist.h:
+	* plugins/winamp3/sdk/common/guid.h:
+	* plugins/winamp3/sdk/common/intarray.cpp:
+	* plugins/winamp3/sdk/common/intarray.h:
+	* plugins/winamp3/sdk/common/labelwnd.cpp:
+	* plugins/winamp3/sdk/common/labelwnd.h:
+	* plugins/winamp3/sdk/common/listwnd.cpp:
+	* plugins/winamp3/sdk/common/listwnd.h:
+	* plugins/winamp3/sdk/common/loadlib.cpp:
+	* plugins/winamp3/sdk/common/loadlib.h:
+	* plugins/winamp3/sdk/common/locales.h:
+	* plugins/winamp3/sdk/common/map.h:
+	* plugins/winamp3/sdk/common/memblock.cpp:
+	* plugins/winamp3/sdk/common/memblock.h:
+	* plugins/winamp3/sdk/common/metatags.h:
+	* plugins/winamp3/sdk/common/msgbox.h:
+	* plugins/winamp3/sdk/common/multimap.h:
+	* plugins/winamp3/sdk/common/named.h:
+	* plugins/winamp3/sdk/common/node.cpp:
+	* plugins/winamp3/sdk/common/node.h:
+	* plugins/winamp3/sdk/common/notifmsg.h:
+	* plugins/winamp3/sdk/common/nsGUID.cpp:
+	* plugins/winamp3/sdk/common/nsGUID.h:
+	* plugins/winamp3/sdk/common/pair.h:
+	* plugins/winamp3/sdk/common/pathparse.cpp:
+	* plugins/winamp3/sdk/common/pathparse.h:
+	* plugins/winamp3/sdk/common/platform/platform.h:
+	* plugins/winamp3/sdk/common/playstring.cpp:
+	* plugins/winamp3/sdk/common/playstring.h:
+	* plugins/winamp3/sdk/common/ptrlist.cpp:
+	* plugins/winamp3/sdk/common/ptrlist.h:
+	* plugins/winamp3/sdk/common/region.cpp:
+	* plugins/winamp3/sdk/common/region.h:
+	* plugins/winamp3/sdk/common/rootcomp.cpp:
+	* plugins/winamp3/sdk/common/rootcomp.h:
+	* plugins/winamp3/sdk/common/rootwnd.cpp:
+	* plugins/winamp3/sdk/common/rootwnd.h:
+	* plugins/winamp3/sdk/common/scbkgwnd.cpp:
+	* plugins/winamp3/sdk/common/scbkgwnd.h:
+	* plugins/winamp3/sdk/common/scriptvar.h:
+	* plugins/winamp3/sdk/common/scrollbar.cpp:
+	* plugins/winamp3/sdk/common/scrollbar.h:
+	* plugins/winamp3/sdk/common/sepwnd.cpp:
+	* plugins/winamp3/sdk/common/sepwnd.h:
+	* plugins/winamp3/sdk/common/skinclr.cpp:
+	* plugins/winamp3/sdk/common/skinclr.h:
+	* plugins/winamp3/sdk/common/slider.h:
+	* plugins/winamp3/sdk/common/stack.h:
+	* plugins/winamp3/sdk/common/std.cpp:
+	* plugins/winamp3/sdk/common/std.h:
+	* plugins/winamp3/sdk/common/string.cpp:
+	* plugins/winamp3/sdk/common/string.h:
+	* plugins/winamp3/sdk/common/stringpool.cpp:
+	* plugins/winamp3/sdk/common/stringpool.h:
+	* plugins/winamp3/sdk/common/svc_enum.cpp:
+	* plugins/winamp3/sdk/common/svc_enum.h:
+	* plugins/winamp3/sdk/common/tabsheet.cpp:
+	* plugins/winamp3/sdk/common/tabsheet.h:
+	* plugins/winamp3/sdk/common/textbar.cpp:
+	* plugins/winamp3/sdk/common/textbar.h:
+	* plugins/winamp3/sdk/common/timer.cpp:
+	* plugins/winamp3/sdk/common/timer.h:
+	* plugins/winamp3/sdk/common/tipwnd.cpp:
+	* plugins/winamp3/sdk/common/tipwnd.h:
+	* plugins/winamp3/sdk/common/tlist.h:
+	* plugins/winamp3/sdk/common/transcendentals.cpp:
+	* plugins/winamp3/sdk/common/transcendentals.h:
+	* plugins/winamp3/sdk/common/treewnd.cpp:
+	* plugins/winamp3/sdk/common/treewnd.h:
+	* plugins/winamp3/sdk/common/urlgrab.cpp:
+	* plugins/winamp3/sdk/common/urlgrab.h:
+	* plugins/winamp3/sdk/common/usermsg.h:
+	* plugins/winamp3/sdk/common/utf8.h:
+	* plugins/winamp3/sdk/common/vcputypes.h:
+	* plugins/winamp3/sdk/common/virtualwnd.cpp:
+	* plugins/winamp3/sdk/common/virtualwnd.h:
+	* plugins/winamp3/sdk/common/wndcb.cpp:
+	* plugins/winamp3/sdk/common/wndcb.h:
+	* plugins/winamp3/sdk/common/xlatstr.h:
+	* plugins/winamp3/sdk/common/xml.cpp:
+	* plugins/winamp3/sdk/common/xml.h:
+	* plugins/winamp3/sdk/sdklicense.txt:
+	* plugins/winamp3/sdk/studio/api.h:
+	* plugins/winamp3/sdk/studio/apihelp.h:
+	* plugins/winamp3/sdk/studio/assert.cpp:
+	* plugins/winamp3/sdk/studio/assert.h:
+	* plugins/winamp3/sdk/studio/buttons.h:
+	* plugins/winamp3/sdk/studio/corecb.cpp:
+	* plugins/winamp3/sdk/studio/corecb.h:
+	* plugins/winamp3/sdk/studio/metricscb.cpp:
+	* plugins/winamp3/sdk/studio/metricscb.h:
+	* plugins/winamp3/sdk/studio/paintsets.h:
+	* plugins/winamp3/sdk/studio/services/service.h:
+	* plugins/winamp3/sdk/studio/services/servicei.cpp:
+	* plugins/winamp3/sdk/studio/services/servicei.h:
+	* plugins/winamp3/sdk/studio/services/services.h:
+	* plugins/winamp3/sdk/studio/services/svc_device.h:
+	* plugins/winamp3/sdk/studio/services/svc_fileread.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_fileread.h:
+	* plugins/winamp3/sdk/studio/services/svc_filesel.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_filesel.h:
+	* plugins/winamp3/sdk/studio/services/svc_imggen.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_imggen.h:
+	* plugins/winamp3/sdk/studio/services/svc_imgload.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_imgload.h:
+	* plugins/winamp3/sdk/studio/services/svc_itemmgr.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_itemmgr.h:
+	* plugins/winamp3/sdk/studio/services/svc_mediaconverter.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_mediaconverter.h:
+	* plugins/winamp3/sdk/studio/services/svc_mediacore.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_mediacore.h:
+	* plugins/winamp3/sdk/studio/services/svc_playlist.h:
+	* plugins/winamp3/sdk/studio/services/svc_scriptobj.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_scriptobj.h:
+	* plugins/winamp3/sdk/studio/services/svc_wndcreate.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_wndcreate.h:
+	* plugins/winamp3/sdk/studio/services/svc_xmlprov.cpp:
+	* plugins/winamp3/sdk/studio/services/svc_xmlprov.h:
+	* plugins/winamp3/sdk/studio/skincb.cpp:
+	* plugins/winamp3/sdk/studio/skincb.h:
+	* plugins/winamp3/sdk/studio/syscb.cpp:
+	* plugins/winamp3/sdk/studio/syscb.h:
+	* plugins/winamp3/sdk/studio/wac.h:
+	* plugins/winamp3/sdk/studio/waclient.cpp:
+	* plugins/winamp3/sdk/studio/xmlmanagedobj.cpp:
+	* plugins/winamp3/sdk/studio/xmlmanagedobj.h:
+	* plugins/winamp3/sdk/studio/xmlmanager.h:
+	* plugins/winamp3/sdk/studio/xmlparse.cpp:
+	* plugins/winamp3/sdk/studio/xmlparse.h:
+	* plugins/winamp3/sdk/studio/xmlreader.cpp:
+	* plugins/winamp3/sdk/studio/xmlreader.h:
+	* plugins/winamp3/sdk/studio/xmlstrparams.h:
+		Added Winamp3 SDK code
+
+	* plugins/winamp3/aacpcm.cpp:
+	* plugins/winamp3/aacpcm.h:
+	* plugins/winamp3/cnv_aacpcm.cpp:
+	* plugins/winamp3/cnv_aacpcm.dsp:
+	* plugins/winamp3/sdk/common/depend.cpp:
+	* plugins/winamp3/sdk/studio/chunklist.h:
+	* plugins/winamp3/sdk/studio/mediainfo.h:
+		added missing files
+		bugfixes (making it work)
+
+	* in_aac.nsi:
+	* plugins/sonique/.cvsignore:
+	* plugins/sonique/SQDialogSystem.h:
+	* plugins/sonique/SQPluginPlayer.h:
+	* plugins/sonique/Sonique Plug-In.txt:
+	* plugins/sonique/aacinfo.c:
+	* plugins/sonique/aacinfo.h:
+	* plugins/sonique/sonique.dsp:
+	* plugins/sonique/sonique.dsw:
+	* plugins/sonique/soniquesqp.cpp:
+	* plugins/winamp/.cvsignore:
+	* plugins/winamp/aacinfo.c:
+	* plugins/winamp/aacinfo.h:
+	* plugins/winamp/filestream.c:
+	* plugins/winamp/filestream.h:
+	* plugins/winamp/id3v2tag.c:
+	* plugins/winamp/id3v2tag.h:
+	* plugins/winamp/in2.h:
+	* plugins/winamp/in_aac.c:
+	* plugins/winamp/in_aac.dsp:
+	* plugins/winamp/in_aac.dsw:
+	* plugins/winamp/out.h:
+	* plugins/winamp/plugin_dlg.rc:
+	* plugins/winamp/resource.h:
+		Structure changes to the CVS tree
+
+	* plugins/winamp3/.cvsignore:
+	* plugins/winamp3/aacpcm.cpp:
+	* plugins/winamp3/aacpcm.h:
+	* plugins/winamp3/cnv_aacpcm.cpp:
+	* plugins/winamp3/cnv_aacpcm.dsp:
+	* plugins/winamp3/cnv_aacpcm.dsw:
+	* plugins/winamp3/cnv_aacpcm.h:
+		winamp3 plugin (not working yet)
+
+2001-10-08  menno
+	* frontend/faad.c:
+		Made FAAD work when compiled with LCC
+
+2001-10-07  menno
+	* frontend/faad.c:
+	* lcc/Makefile:
+	* libfaad/util.h:
+		Made faad build on free LCC compiler
+
+2001-10-05  eraser
+	* libfaad/decoder.c:
+		fixed faacDecInit2()/parse_audio_decoder_specific_info()
+
+2001-09-24  menno
+	* common/id3lib/libprj/id3lib.dsp:
+	* frontend/faad.c:
+	* libfaad/block.c:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/tns.c:
+		Minor changes
+		Compilation fix
+
+2001-09-21  eraser
+	* include/faad.h:
+		typo fixed
+
+	* libfaad/decoder.c:
+		removed format detection in faacDecDecode(), because in mp4
+		only raw_data_block() can be stored, in other cases faacDecInit
+		) will detect stream format
+
+2001-09-12  menno
+	* common/id3lib/libprj/.cvsignore:
+	* common/id3lib/libprj/Makefile.am:
+	* common/id3lib/libprj/id3lib.dsp:
+	* common/id3lib/libprj/id3lib.dsw:
+	* in_aac.nsi:
+		Made id3lib link statically to the plugin
+
+2001-09-07  menno
+	* libfaad/block.h:
+	* libfaad/dolby_adapt.c:
+		Small change of strange window names
+
+	* include/faad.h:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+		Added parsing of DecoderSpecificInfo
+
+	* common/id3lib/.cvsignore:
+	* common/id3lib/.cvsignore:
+	* common/id3lib/AUTHORS:
+	* common/id3lib/AUTHORS:
+	* common/id3lib/COPYING:
+	* common/id3lib/ChangeLog:
+	* common/id3lib/ChangeLog:
+	* common/id3lib/HISTORY:
+	* common/id3lib/HISTORY:
+	* common/id3lib/INSTALL:
+	* common/id3lib/Makefile.am:
+	* common/id3lib/Makefile.am:
+	* common/id3lib/Makefile.in:
+	* common/id3lib/Makefile.in:
+	* common/id3lib/NEWS:
+	* common/id3lib/NEWS:
+	* common/id3lib/README:
+	* common/id3lib/THANKS:
+	* common/id3lib/THANKS:
+	* common/id3lib/TODO:
+	* common/id3lib/TODO:
+	* common/id3lib/acconfig:
+	* common/id3lib/acconfig.h:
+	* common/id3lib/acconfig.h:
+	* common/id3lib/aclocal.m4:
+	* common/id3lib/aclocal.m4:
+	* common/id3lib/config.guess:
+	* common/id3lib/config.h.in:
+	* common/id3lib/config.h.in:
+	* common/id3lib/config.h.win32:
+	* common/id3lib/config.h.win32.in:
+	* common/id3lib/config.h.win32.in:
+	* common/id3lib/config.sub:
+	* common/id3lib/config.win32:
+	* common/id3lib/config.win32:
+	* common/id3lib/configure:
+	* common/id3lib/configure:
+	* common/id3lib/configure.in:
+	* common/id3lib/configure.in:
+	* common/id3lib/cvs2cl.pl:
+	* common/id3lib/id3lib.kdevprj:
+	* common/id3lib/id3lib.lsm:
+	* common/id3lib/id3lib.spec.in:
+	* common/id3lib/id3lib.spec.in:
+	* common/id3lib/include/.cvsignore:
+	* common/id3lib/include/Makefile.am:
+	* common/id3lib/include/Makefile.in:
+	* common/id3lib/include/id3.h:
+	* common/id3lib/include/id3/.cvsignore:
+	* common/id3lib/include/id3/Makefile.am:
+	* common/id3lib/include/id3/Makefile.in:
+	* common/id3lib/include/id3/error.h:
+	* common/id3lib/include/id3/error.h:
+	* common/id3lib/include/id3/field.h:
+	* common/id3lib/include/id3/flags.h:
+	* common/id3lib/include/id3/flags.h:
+	* common/id3lib/include/id3/frame.h:
+	* common/id3lib/include/id3/globals.h:
+	* common/id3lib/include/id3/header.h:
+	* common/id3lib/include/id3/header.h:
+	* common/id3lib/include/id3/header_frame.h:
+	* common/id3lib/include/id3/header_frame.h:
+	* common/id3lib/include/id3/header_tag.h:
+	* common/id3lib/include/id3/header_tag.h:
+	* common/id3lib/include/id3/helpers.h:
+	* common/id3lib/include/id3/int28.h:
+	* common/id3lib/include/id3/int28.h:
+	* common/id3lib/include/id3/io_decorators.h:
+	* common/id3lib/include/id3/io_helpers.h:
+	* common/id3lib/include/id3/io_strings.h:
+	* common/id3lib/include/id3/misc_support.h:
+	* common/id3lib/include/id3/reader.h:
+	* common/id3lib/include/id3/readers.h:
+	* common/id3lib/include/id3/sized_types.h:
+	* common/id3lib/include/id3/spec.h:
+	* common/id3lib/include/id3/spec.h:
+	* common/id3lib/include/id3/strings.h:
+	* common/id3lib/include/id3/tag.h:
+	* common/id3lib/include/id3/uint28.h:
+	* common/id3lib/include/id3/uint28.h:
+	* common/id3lib/include/id3/utils.h:
+	* common/id3lib/include/id3/writer.h:
+	* common/id3lib/include/id3/writers.h:
+	* common/id3lib/install-sh:
+	* common/id3lib/libtool:
+	* common/id3lib/libtool:
+	* common/id3lib/ltconfig:
+	* common/id3lib/ltmain.sh:
+	* common/id3lib/m4/.cvsignore:
+	* common/id3lib/m4/Makefile.am:
+	* common/id3lib/m4/Makefile.in:
+	* common/id3lib/m4/id3_cxx.m4:
+	* common/id3lib/m4/id3_debug.m4:
+	* common/id3lib/m4/id3_unicode.m4:
+	* common/id3lib/m4/lf_bash.m4:
+	* common/id3lib/m4/lf_bash.m4:
+	* common/id3lib/m4/lf_cc.m4:
+	* common/id3lib/m4/lf_cc.m4:
+	* common/id3lib/m4/lf_cxx.m4:
+	* common/id3lib/m4/lf_cxx_convenience.m4:
+	* common/id3lib/m4/lf_cxx_convenience.m4:
+	* common/id3lib/m4/lf_fortran.m4:
+	* common/id3lib/m4/lf_fortran.m4:
+	* common/id3lib/m4/lf_host_type.m4:
+	* common/id3lib/m4/lf_host_type.m4:
+	* common/id3lib/m4/lf_lisp.m4:
+	* common/id3lib/m4/lf_lisp.m4:
+	* common/id3lib/m4/lf_local.m4:
+	* common/id3lib/m4/lf_nm.m4:
+	* common/id3lib/m4/lf_nm.m4:
+	* common/id3lib/m4/lf_texidoc.m4:
+	* common/id3lib/m4/lf_texidoc.m4:
+	* common/id3lib/m4/lf_txtc.m4:
+	* common/id3lib/m4/lf_txtc.m4:
+	* common/id3lib/m4/lf_warnings.m4:
+	* common/id3lib/m4/lf_warnings.m4:
+	* common/id3lib/m4/lf_x11.m4:
+	* common/id3lib/m4/lf_x11.m4:
+	* common/id3lib/missing:
+	* common/id3lib/mkinstalldirs:
+	* common/id3lib/mkinstalldirs:
+	* common/id3lib/reconf:
+	* common/id3lib/reconf:
+	* common/id3lib/rename.pl:
+	* common/id3lib/src/.cvsignore:
+	* common/id3lib/src/Makefile.am:
+	* common/id3lib/src/Makefile.in:
+	* common/id3lib/src/c_wrapper.cpp:
+	* common/id3lib/src/error.cpp:
+	* common/id3lib/src/error.cpp:
+	* common/id3lib/src/field.cpp:
+	* common/id3lib/src/field_binary.cpp:
+	* common/id3lib/src/field_def.h:
+	* common/id3lib/src/field_impl.h:
+	* common/id3lib/src/field_integer.cpp:
+	* common/id3lib/src/field_string_ascii.cpp:
+	* common/id3lib/src/field_string_unicode.cpp:
+	* common/id3lib/src/flags.h:
+	* common/id3lib/src/frame.cpp:
+	* common/id3lib/src/frame_def.h:
+	* common/id3lib/src/frame_impl.cpp:
+	* common/id3lib/src/frame_impl.h:
+	* common/id3lib/src/frame_parse.cpp:
+	* common/id3lib/src/frame_render.cpp:
+	* common/id3lib/src/globals.cpp:
+	* common/id3lib/src/header.cpp:
+	* common/id3lib/src/header.h:
+	* common/id3lib/src/header_frame.cpp:
+	* common/id3lib/src/header_frame.h:
+	* common/id3lib/src/header_tag.cpp:
+	* common/id3lib/src/header_tag.h:
+	* common/id3lib/src/helpers.cpp:
+	* common/id3lib/src/int28.cpp:
+	* common/id3lib/src/int28.cpp:
+	* common/id3lib/src/io.cpp:
+	* common/id3lib/src/io_decorators.cpp:
+	* common/id3lib/src/io_helpers.cpp:
+	* common/id3lib/src/misc_support.cpp:
+	* common/id3lib/src/readers.cpp:
+	* common/id3lib/src/spec.cpp:
+	* common/id3lib/src/spec.h:
+	* common/id3lib/src/tag.cpp:
+	* common/id3lib/src/tag_file.cpp:
+	* common/id3lib/src/tag_find.cpp:
+	* common/id3lib/src/tag_impl.cpp:
+	* common/id3lib/src/tag_impl.h:
+	* common/id3lib/src/tag_parse.cpp:
+	* common/id3lib/src/tag_parse_lyrics3.cpp:
+	* common/id3lib/src/tag_parse_musicmatch.cpp:
+	* common/id3lib/src/tag_parse_v1.cpp:
+	* common/id3lib/src/tag_render.cpp:
+	* common/id3lib/src/tag_sync.cpp:
+	* common/id3lib/src/tag_sync.cpp:
+	* common/id3lib/src/uint28.cpp:
+	* common/id3lib/src/uint28.cpp:
+	* common/id3lib/src/utils.cpp:
+	* common/id3lib/src/writer_decorators.cpp:
+	* common/id3lib/src/writers.cpp:
+	* common/id3lib/stamp-h.in:
+	* common/id3lib/win32/config.h:
+	* common/id3lib/zlib/.cvsignore:
+	* common/id3lib/zlib/AUTHORS:
+	* common/id3lib/zlib/COPYING:
+	* common/id3lib/zlib/ChangeLog:
+	* common/id3lib/zlib/INSTALL:
+	* common/id3lib/zlib/Makefile.am:
+	* common/id3lib/zlib/Makefile.in:
+	* common/id3lib/zlib/NEWS:
+	* common/id3lib/zlib/README:
+	* common/id3lib/zlib/acconfig:
+	* common/id3lib/zlib/acconfig.h:
+	* common/id3lib/zlib/aclocal.m4:
+	* common/id3lib/zlib/config.h:
+	* common/id3lib/zlib/config.h.in:
+	* common/id3lib/zlib/configure:
+	* common/id3lib/zlib/configure.in:
+	* common/id3lib/zlib/include/.cvsignore:
+	* common/id3lib/zlib/include/Makefile.am:
+	* common/id3lib/zlib/include/Makefile.in:
+	* common/id3lib/zlib/include/deflate.h:
+	* common/id3lib/zlib/include/infblock.h:
+	* common/id3lib/zlib/include/infcodes.h:
+	* common/id3lib/zlib/include/inffast.h:
+	* common/id3lib/zlib/include/inffixed.h:
+	* common/id3lib/zlib/include/inftrees.h:
+	* common/id3lib/zlib/include/infutil.h:
+	* common/id3lib/zlib/include/trees.h:
+	* common/id3lib/zlib/include/zconf.h:
+	* common/id3lib/zlib/include/zlib.h:
+	* common/id3lib/zlib/include/zutil.h:
+	* common/id3lib/zlib/lib/.cvsignore:
+	* common/id3lib/zlib/lib/Makefile.am:
+	* common/id3lib/zlib/lib/Makefile.in:
+	* common/id3lib/zlib/libtool:
+	* common/id3lib/zlib/mkinstalldirs:
+	* common/id3lib/zlib/prj/.cvsignore:
+	* common/id3lib/zlib/prj/Makefile.am:
+	* common/id3lib/zlib/prj/Makefile.in:
+	* common/id3lib/zlib/prj/zlib.dsp:
+	* common/id3lib/zlib/prj/zlib.dsw:
+	* common/id3lib/zlib/prj/zlib.mak:
+	* common/id3lib/zlib/reconf:
+	* common/id3lib/zlib/src/.cvsignore:
+	* common/id3lib/zlib/src/Makefile.am:
+	* common/id3lib/zlib/src/Makefile.in:
+	* common/id3lib/zlib/src/adler32.c:
+	* common/id3lib/zlib/src/compress.c:
+	* common/id3lib/zlib/src/crc32.c:
+	* common/id3lib/zlib/src/deflate.c:
+	* common/id3lib/zlib/src/gzio.c:
+	* common/id3lib/zlib/src/infblock.c:
+	* common/id3lib/zlib/src/infcodes.c:
+	* common/id3lib/zlib/src/inffast.c:
+	* common/id3lib/zlib/src/inflate.c:
+	* common/id3lib/zlib/src/inftrees.c:
+	* common/id3lib/zlib/src/infutil.c:
+	* common/id3lib/zlib/src/trees.c:
+	* common/id3lib/zlib/src/uncompr.c:
+	* common/id3lib/zlib/src/zutil.c:
+	* common/id3lib/zlib/stamp-h:
+	* common/id3lib/zlib/stamp-h.in:
+		Changed to older, less buggy id3lib
+
+	* common/id3lib/.cvsignore:
+	* common/id3lib/AUTHORS:
+	* common/id3lib/COPYING:
+	* common/id3lib/ChangeLog:
+	* common/id3lib/HISTORY:
+	* common/id3lib/INSTALL:
+	* common/id3lib/Makefile.am:
+	* common/id3lib/Makefile.in:
+	* common/id3lib/NEWS:
+	* common/id3lib/README:
+	* common/id3lib/THANKS:
+	* common/id3lib/TODO:
+	* common/id3lib/acconfig:
+	* common/id3lib/acconfig.h:
+	* common/id3lib/aclocal.m4:
+	* common/id3lib/config.guess:
+	* common/id3lib/config.h.in:
+	* common/id3lib/config.h.win32.in:
+	* common/id3lib/config.sub:
+	* common/id3lib/config.win32:
+	* common/id3lib/configure:
+	* common/id3lib/configure.in:
+	* common/id3lib/id3lib.spec.in:
+	* common/id3lib/include/.cvsignore:
+	* common/id3lib/include/Makefile.am:
+	* common/id3lib/include/Makefile.in:
+	* common/id3lib/include/id3.h:
+	* common/id3lib/include/id3/.cvsignore:
+	* common/id3lib/include/id3/Makefile.am:
+	* common/id3lib/include/id3/Makefile.in:
+	* common/id3lib/include/id3/error.h:
+	* common/id3lib/include/id3/field.h:
+	* common/id3lib/include/id3/flags.h:
+	* common/id3lib/include/id3/frame.h:
+	* common/id3lib/include/id3/globals.h:
+	* common/id3lib/include/id3/header.h:
+	* common/id3lib/include/id3/header_frame.h:
+	* common/id3lib/include/id3/header_tag.h:
+	* common/id3lib/include/id3/int28.h:
+	* common/id3lib/include/id3/misc_support.h:
+	* common/id3lib/include/id3/sized_types.h:
+	* common/id3lib/include/id3/spec.h:
+	* common/id3lib/include/id3/tag.h:
+	* common/id3lib/include/id3/uint28.h:
+	* common/id3lib/include/id3/utils.h:
+	* common/id3lib/install-sh:
+	* common/id3lib/libtool:
+	* common/id3lib/ltconfig:
+	* common/id3lib/ltmain.sh:
+	* common/id3lib/m4/.cvsignore:
+	* common/id3lib/m4/Makefile.am:
+	* common/id3lib/m4/Makefile.in:
+	* common/id3lib/m4/lf_bash.m4:
+	* common/id3lib/m4/lf_cc.m4:
+	* common/id3lib/m4/lf_cxx.m4:
+	* common/id3lib/m4/lf_cxx_convenience.m4:
+	* common/id3lib/m4/lf_fortran.m4:
+	* common/id3lib/m4/lf_host_type.m4:
+	* common/id3lib/m4/lf_lisp.m4:
+	* common/id3lib/m4/lf_local.m4:
+	* common/id3lib/m4/lf_nm.m4:
+	* common/id3lib/m4/lf_texidoc.m4:
+	* common/id3lib/m4/lf_txtc.m4:
+	* common/id3lib/m4/lf_warnings.m4:
+	* common/id3lib/m4/lf_x11.m4:
+	* common/id3lib/missing:
+	* common/id3lib/mkinstalldirs:
+	* common/id3lib/reconf:
+	* common/id3lib/rename.pl:
+	* common/id3lib/src/.cvsignore:
+	* common/id3lib/src/Makefile.am:
+	* common/id3lib/src/Makefile.in:
+	* common/id3lib/src/c_wrapper.cpp:
+	* common/id3lib/src/error.cpp:
+	* common/id3lib/src/field.cpp:
+	* common/id3lib/src/field_binary.cpp:
+	* common/id3lib/src/field_integer.cpp:
+	* common/id3lib/src/field_string_ascii.cpp:
+	* common/id3lib/src/field_string_unicode.cpp:
+	* common/id3lib/src/frame.cpp:
+	* common/id3lib/src/frame_parse.cpp:
+	* common/id3lib/src/frame_render.cpp:
+	* common/id3lib/src/globals.cpp:
+	* common/id3lib/src/header.cpp:
+	* common/id3lib/src/header_frame.cpp:
+	* common/id3lib/src/header_tag.cpp:
+	* common/id3lib/src/int28.cpp:
+	* common/id3lib/src/misc_support.cpp:
+	* common/id3lib/src/spec.cpp:
+	* common/id3lib/src/tag.cpp:
+	* common/id3lib/src/tag_file.cpp:
+	* common/id3lib/src/tag_find.cpp:
+	* common/id3lib/src/tag_parse.cpp:
+	* common/id3lib/src/tag_parse_lyrics3.cpp:
+	* common/id3lib/src/tag_parse_v1.cpp:
+	* common/id3lib/src/tag_render.cpp:
+	* common/id3lib/src/tag_sync.cpp:
+	* common/id3lib/src/uint28.cpp:
+	* common/id3lib/src/utils.cpp:
+	* common/id3lib/stamp-h.in:
+	* common/id3lib/win32/config.h:
+	* common/id3lib/zlib/.cvsignore:
+	* common/id3lib/zlib/Makefile.am:
+	* common/id3lib/zlib/Makefile.in:
+	* common/id3lib/zlib/include/.cvsignore:
+	* common/id3lib/zlib/include/Makefile.am:
+	* common/id3lib/zlib/include/Makefile.in:
+	* common/id3lib/zlib/include/deflate.h:
+	* common/id3lib/zlib/include/infblock.h:
+	* common/id3lib/zlib/include/infcodes.h:
+	* common/id3lib/zlib/include/inffast.h:
+	* common/id3lib/zlib/include/inffixed.h:
+	* common/id3lib/zlib/include/inftrees.h:
+	* common/id3lib/zlib/include/infutil.h:
+	* common/id3lib/zlib/include/trees.h:
+	* common/id3lib/zlib/include/zconf.h:
+	* common/id3lib/zlib/include/zlib.h:
+	* common/id3lib/zlib/include/zutil.h:
+	* common/id3lib/zlib/lib/.cvsignore:
+	* common/id3lib/zlib/lib/Makefile.am:
+	* common/id3lib/zlib/lib/Makefile.in:
+	* common/id3lib/zlib/prj/.cvsignore:
+	* common/id3lib/zlib/prj/Makefile.am:
+	* common/id3lib/zlib/prj/Makefile.in:
+	* common/id3lib/zlib/prj/zlib.dsp:
+	* common/id3lib/zlib/prj/zlib.dsw:
+	* common/id3lib/zlib/prj/zlib.mak:
+	* common/id3lib/zlib/src/.cvsignore:
+	* common/id3lib/zlib/src/Makefile.am:
+	* common/id3lib/zlib/src/Makefile.in:
+	* common/id3lib/zlib/src/adler32.c:
+	* common/id3lib/zlib/src/compress.c:
+	* common/id3lib/zlib/src/crc32.c:
+	* common/id3lib/zlib/src/deflate.c:
+	* common/id3lib/zlib/src/gzio.c:
+	* common/id3lib/zlib/src/infblock.c:
+	* common/id3lib/zlib/src/infcodes.c:
+	* common/id3lib/zlib/src/inffast.c:
+	* common/id3lib/zlib/src/inflate.c:
+	* common/id3lib/zlib/src/inftrees.c:
+	* common/id3lib/zlib/src/infutil.c:
+	* common/id3lib/zlib/src/trees.c:
+	* common/id3lib/zlib/src/uncompr.c:
+	* common/id3lib/zlib/src/zutil.c:
+		Changed to older, less buggy id3lib
+		ID3 tagging now working :-)
+
+2001-09-04  menno
+	* frontend/faad.c:
+		Added options to correctly decode RAW files with various
+		samplerates/object types
+
+	* README:
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/intensity.c:
+	* libfaad/interface.h:
+	* libfaad/kbd_win.h:
+	* libfaad/monopred.c:
+	* libfaad/monopred.h:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/nok_ltp_common_internal.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
+	* libfaad/tns.h:
+	* libfaad/transfo.c:
+		Made FAAC legal :-)
+
+2001-09-03  menno
+	* frontend/faad.c:
+		Added options to correctly decode RAW files with various
+		samplerates/object types
+
 2001-08-31  menno
+	* libfaad/decoder.c:
+		Fixed initialisation of default samplerate
+
+	* libfaad/huffdec.c:
 		Little bugfix in intialising an array
 
-2001-08-18  rageomatic
-		speed and streaming updates
-
-2001-07-10  menno
-		Added Sonique plugin (written by Nic)
-
 2001-07-09  menno
+	* libfaad/.cvsignore:
+	* libfaad/libfaad.def:
+	* libfaad/libfaad_dll.dsp:
+	* libfaad/libfaad_dll.dsw:
 		Added project file for compiling faad as a DLL
 
-2001-07-03  rageomatic
-		Added OK and Cancel buttons
-
 2001-07-02  menno
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/port.h:
 		Fix for using faac and faad in the same program
 
-2001-07-01  rageomatic
-		Small bug with the variable bitrate check box
-
-		Added buffering options
-
-2001-06-28  rageomatic
-		Updated configuration UI. A few new features.
-
 2001-06-27  menno
-		Basically all ID3 text frames are read now
-
+	* bootstrap:
+	* bootstrap:
 		Unix compile fix
 
-		Redone ID3v2 reading
-		Every field will be shown now
-
 2001-06-26  menno
+	* frontend/faad.c:
 		Compile fix under Unix
 
 2001-06-25  menno
+	* libfaad/bits.c:
+	* libfaad/decoder.c:
 		Fixed assertion failure
 
+	* README:
 		Compilation help
 
 2001-06-22  menno
+	* utils/adtsfix/adtsfix.c:
+	* utils/psystrip/psystrip.c:
 		Some compatibility issues are removed .
 		A bug removed.
 		Better Error messages
@@ -50,379 +779,1312 @@
 		Thanks to Frank Klemm
 
 2001-06-12  menno
+	* utils/psystrip/psystrip.c:
 		bugfix
 
+	* frontend/faad.c:
+	* frontend/faad.dsp:
 		new option parsing
 
 2001-06-11  menno
+	* libfaad/bits.c:
 		removed assert()
 
 2001-06-10  menno
+	* utils/psystrip/psystrip.c:
 		Small cleanup
 
+	* frontend/faad.c:
 		Fixed memory leaking
 		Output to stderr, so that writing to stdio still gives some info on screen
 
+	* frontend/faad.c:
 		Now showing percentage while decoding
 
 2001-06-09  menno
+	* utils/mp4apkt/COPYING:
+	* utils/mp4extract/COPYING:
+	* utils/psystrip/.cvsignore:
+	* utils/psystrip/psystrip.c:
+	* utils/psystrip/psystrip.dsp:
+	* utils/psystrip/psystrip.dsw:
 		Added util to remove PsyTEL tags
 
 2001-06-08  menno
+	* TODO:
+	* common/getopt/getopt.c:
+	* common/getopt/getopt.h:
+	* frontend/faad.c:
+	* frontend/wav.c:
+	* frontend/wav.h:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/fastfft.c:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/hufftables.c:
+	* libfaad/intensity.c:
+	* libfaad/interface.h:
+	* libfaad/kbd_win.h:
+	* libfaad/libfaad.dsp:
+	* libfaad/monopred.c:
+	* libfaad/monopred.h:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/nok_ltp_common_internal.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
+	* libfaad/tns.h:
+	* libfaad/transfo.c:
+	* libfaad/transfo.h:
+	* libfaad/util.c:
+	* todo.txt:
+	* utils/adtsfix/adtsfix.c:
+	* utils/mp4apkt/aac.c:
+	* utils/mp4apkt/mp3.c:
+	* utils/mp4apkt/mp4apkt.c:
+	* utils/mp4extract/mp4extract.c:
 		File renamed
 
+	* TODO:
+	* common/getopt/COPYING:
+	* utils/mp4apkt/COPYING:
+	* utils/mp4extract/COPYING:
 		Added license files for third party code
 
+	* bootstrap:
 		Fixed linux compilation
 
 2001-06-07  menno
+	* frontend/faad.c:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/port.h:
+	* todo.txt:
 		Made changes to the configuration structure.
 		Now the default samplerate and object type can be set for use with headerless AAC files
 
 2001-06-06  menno
+	* libfaad/config.c:
+	* libfaad/port.h:
 		Small cleanup
 
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/fastfft.c:
+	* libfaad/huffdec.c:
+	* libfaad/port.h:
+	* todo.txt:
 		(I hope I have) fixed MPEG4 compatibility once and for all ;-)
 
 2001-06-01  menno
+	* libfaad/config.c:
+	* libfaad/decoder.c:
 		Fixed seeking for MPEG4 files
 
 2001-05-30  menno
+	* COPYING:
+	* frontend/faad.c:
+	* frontend/wav.c:
+	* frontend/wav.h:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/fastfft.c:
+	* libfaad/fastfft.h:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/hufftables.c:
+	* libfaad/intensity.c:
+	* libfaad/interface.h:
+	* libfaad/kbd_win.h:
+	* libfaad/monopred.c:
+	* libfaad/monopred.h:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/nok_ltp_common_internal.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
+	* libfaad/tns.h:
+	* libfaad/transfo.c:
+	* libfaad/transfo.h:
+	* libfaad/util.c:
+	* libfaad/util.h:
+	* utils/adtsfix/adtsfix.c:
 		Changed license from GPL to LPGL
 
+	* include/faad.h:
 		Added CR
 
 2001-05-29  menno
-		Small changes to the info box
-		Disabled seeking for MPEG4 AAC files temporarily
-
+	* AUTHORS:
+	* NEWS:
+	* acconfig.h:
+	* bootstrap:
+	* configure.in:
+	* utils.m4:
 		Fixed linux compilation
 
 2001-05-28  menno
+	* common/id3lib/.cvsignore:
+	* common/id3lib/AUTHORS:
+	* common/id3lib/COPYING:
+	* common/id3lib/HISTORY:
+	* common/id3lib/INSTALL:
+	* common/id3lib/Makefile.am:
+	* common/id3lib/Makefile.in:
+	* common/id3lib/NEWS:
+	* common/id3lib/README:
+	* common/id3lib/THANKS:
+	* common/id3lib/TODO:
+	* common/id3lib/acconfig:
+	* common/id3lib/acconfig.h:
+	* common/id3lib/aclocal.m4:
+	* common/id3lib/config.guess:
+	* common/id3lib/config.h.in:
+	* common/id3lib/config.h.win32:
+	* common/id3lib/config.h.win32.in:
+	* common/id3lib/config.sub:
+	* common/id3lib/config.win32:
+	* common/id3lib/configure:
+	* common/id3lib/configure.in:
+	* common/id3lib/cvs2cl.pl:
+	* common/id3lib/id3lib.kdevprj:
+	* common/id3lib/id3lib.lsm:
+	* common/id3lib/id3lib.spec.in:
+	* common/id3lib/include/.cvsignore:
+	* common/id3lib/include/Makefile.am:
+	* common/id3lib/include/Makefile.in:
+	* common/id3lib/include/id3.h:
+	* common/id3lib/include/id3/.cvsignore:
+	* common/id3lib/include/id3/Makefile.am:
+	* common/id3lib/include/id3/Makefile.in:
+	* common/id3lib/include/id3/field.h:
+	* common/id3lib/include/id3/frame.h:
+	* common/id3lib/include/id3/globals.h:
+	* common/id3lib/include/id3/helpers.h:
+	* common/id3lib/include/id3/io_decorators.h:
+	* common/id3lib/include/id3/io_helpers.h:
+	* common/id3lib/include/id3/io_strings.h:
+	* common/id3lib/include/id3/misc_support.h:
+	* common/id3lib/include/id3/reader.h:
+	* common/id3lib/include/id3/readers.h:
+	* common/id3lib/include/id3/sized_types.h:
+	* common/id3lib/include/id3/strings.h:
+	* common/id3lib/include/id3/tag.h:
+	* common/id3lib/include/id3/utils.h:
+	* common/id3lib/include/id3/writer.h:
+	* common/id3lib/include/id3/writers.h:
+	* common/id3lib/install-sh:
+	* common/id3lib/libtool:
+	* common/id3lib/ltconfig:
+	* common/id3lib/ltmain.sh:
+	* common/id3lib/m4/.cvsignore:
+	* common/id3lib/m4/Makefile.am:
+	* common/id3lib/m4/Makefile.in:
+	* common/id3lib/m4/id3_cxx.m4:
+	* common/id3lib/m4/id3_debug.m4:
+	* common/id3lib/m4/id3_unicode.m4:
+	* common/id3lib/m4/lf_cxx.m4:
+	* common/id3lib/m4/lf_local.m4:
+	* common/id3lib/missing:
+	* common/id3lib/mkinstalldirs:
+	* common/id3lib/reconf:
+	* common/id3lib/rename.pl:
+	* common/id3lib/src/.cvsignore:
+	* common/id3lib/src/Makefile.am:
+	* common/id3lib/src/Makefile.in:
+	* common/id3lib/src/c_wrapper.cpp:
+	* common/id3lib/src/field.cpp:
+	* common/id3lib/src/field_binary.cpp:
+	* common/id3lib/src/field_def.h:
+	* common/id3lib/src/field_impl.h:
+	* common/id3lib/src/field_integer.cpp:
+	* common/id3lib/src/field_string_ascii.cpp:
+	* common/id3lib/src/field_string_unicode.cpp:
+	* common/id3lib/src/flags.h:
+	* common/id3lib/src/frame.cpp:
+	* common/id3lib/src/frame_def.h:
+	* common/id3lib/src/frame_impl.cpp:
+	* common/id3lib/src/frame_impl.h:
+	* common/id3lib/src/frame_parse.cpp:
+	* common/id3lib/src/frame_render.cpp:
+	* common/id3lib/src/globals.cpp:
+	* common/id3lib/src/header.cpp:
+	* common/id3lib/src/header.h:
+	* common/id3lib/src/header_frame.cpp:
+	* common/id3lib/src/header_frame.h:
+	* common/id3lib/src/header_tag.cpp:
+	* common/id3lib/src/header_tag.h:
+	* common/id3lib/src/helpers.cpp:
+	* common/id3lib/src/io.cpp:
+	* common/id3lib/src/io_decorators.cpp:
+	* common/id3lib/src/io_helpers.cpp:
+	* common/id3lib/src/misc_support.cpp:
+	* common/id3lib/src/readers.cpp:
+	* common/id3lib/src/spec.cpp:
+	* common/id3lib/src/spec.h:
+	* common/id3lib/src/tag.cpp:
+	* common/id3lib/src/tag_file.cpp:
+	* common/id3lib/src/tag_find.cpp:
+	* common/id3lib/src/tag_impl.cpp:
+	* common/id3lib/src/tag_impl.h:
+	* common/id3lib/src/tag_parse.cpp:
+	* common/id3lib/src/tag_parse_lyrics3.cpp:
+	* common/id3lib/src/tag_parse_musicmatch.cpp:
+	* common/id3lib/src/tag_parse_v1.cpp:
+	* common/id3lib/src/tag_render.cpp:
+	* common/id3lib/src/utils.cpp:
+	* common/id3lib/src/writer_decorators.cpp:
+	* common/id3lib/src/writers.cpp:
+	* common/id3lib/stamp-h.in:
+	* common/id3lib/win32/config.h:
+	* common/id3lib/zlib/.cvsignore:
+	* common/id3lib/zlib/AUTHORS:
+	* common/id3lib/zlib/COPYING:
+	* common/id3lib/zlib/ChangeLog:
+	* common/id3lib/zlib/INSTALL:
+	* common/id3lib/zlib/Makefile.am:
+	* common/id3lib/zlib/Makefile.in:
+	* common/id3lib/zlib/NEWS:
+	* common/id3lib/zlib/README:
+	* common/id3lib/zlib/acconfig:
+	* common/id3lib/zlib/acconfig.h:
+	* common/id3lib/zlib/aclocal.m4:
+	* common/id3lib/zlib/config.h:
+	* common/id3lib/zlib/config.h.in:
+	* common/id3lib/zlib/configure:
+	* common/id3lib/zlib/configure.in:
+	* common/id3lib/zlib/include/.cvsignore:
+	* common/id3lib/zlib/include/Makefile.am:
+	* common/id3lib/zlib/include/Makefile.in:
+	* common/id3lib/zlib/include/deflate.h:
+	* common/id3lib/zlib/include/infblock.h:
+	* common/id3lib/zlib/include/infcodes.h:
+	* common/id3lib/zlib/include/inffast.h:
+	* common/id3lib/zlib/include/inffixed.h:
+	* common/id3lib/zlib/include/inftrees.h:
+	* common/id3lib/zlib/include/infutil.h:
+	* common/id3lib/zlib/include/trees.h:
+	* common/id3lib/zlib/include/zconf.h:
+	* common/id3lib/zlib/include/zlib.h:
+	* common/id3lib/zlib/include/zutil.h:
+	* common/id3lib/zlib/lib/.cvsignore:
+	* common/id3lib/zlib/lib/Makefile.am:
+	* common/id3lib/zlib/lib/Makefile.in:
+	* common/id3lib/zlib/libtool:
+	* common/id3lib/zlib/mkinstalldirs:
+	* common/id3lib/zlib/prj/.cvsignore:
+	* common/id3lib/zlib/prj/Makefile.am:
+	* common/id3lib/zlib/prj/Makefile.in:
+	* common/id3lib/zlib/prj/zlib.dsp:
+	* common/id3lib/zlib/prj/zlib.dsw:
+	* common/id3lib/zlib/prj/zlib.mak:
+	* common/id3lib/zlib/reconf:
+	* common/id3lib/zlib/src/.cvsignore:
+	* common/id3lib/zlib/src/Makefile.am:
+	* common/id3lib/zlib/src/Makefile.in:
+	* common/id3lib/zlib/src/adler32.c:
+	* common/id3lib/zlib/src/compress.c:
+	* common/id3lib/zlib/src/crc32.c:
+	* common/id3lib/zlib/src/deflate.c:
+	* common/id3lib/zlib/src/gzio.c:
+	* common/id3lib/zlib/src/infblock.c:
+	* common/id3lib/zlib/src/infcodes.c:
+	* common/id3lib/zlib/src/inffast.c:
+	* common/id3lib/zlib/src/inflate.c:
+	* common/id3lib/zlib/src/inftrees.c:
+	* common/id3lib/zlib/src/infutil.c:
+	* common/id3lib/zlib/src/trees.c:
+	* common/id3lib/zlib/src/uncompr.c:
+	* common/id3lib/zlib/src/zutil.c:
+	* common/id3lib/zlib/stamp-h:
+	* common/id3lib/zlib/stamp-h.in:
 		Inclusion of id3lib
 
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/port.h:
+	* libfaad/transfo.c:
+	* libfaad/util.h:
 		Bug fixes and some changes for nicer compilation (Thanks to
 		Bill May from MPEG4IP)
 
-		Support for reading of some ID3v2 tag fields (not all yet)
-
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/libfaad.dsp:
 		Changes for ISO MPEG4 compatibility (sorry :(( )
 		Old MPEG4 files with ADTS header will not be playable anymore
 
+	* in_aac.nsi:
 		Fixed installer so that id3lib.dll gets copied to the system directory
 
 2001-05-20  menno
+	* frontend/faad.c:
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/fastfft.c:
+	* libfaad/huffdec.c:
+	* libfaad/interface.h:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/readme.txt:
+	* libfaad/tns.c:
+	* todo.txt:
 		Small code cleanup
 
-		New file info dialog, just got to implement ID3v2 tags now.
-
 2001-05-17  menno
+	* docs/libfaad.pdf:
 		Added decoder library documentation
 
 2001-05-14  menno
+	* common/getopt/getopt.c:
+	* common/getopt/getopt.h:
+	* common/mp4/.cvsignore:
+	* common/mp4/README:
+	* common/mp4/README_ORIGINAL:
+	* common/mp4/atom.c:
+	* common/mp4/ctab.c:
+	* common/mp4/ctts.c:
+	* common/mp4/dimm.c:
+	* common/mp4/dinf.c:
+	* common/mp4/dmax.c:
+	* common/mp4/dmed.c:
+	* common/mp4/doc/building.html:
+	* common/mp4/doc/codecs.html:
+	* common/mp4/doc/index.html:
+	* common/mp4/doc/opening.html:
+	* common/mp4/doc/positioning.html:
+	* common/mp4/doc/reading.html:
+	* common/mp4/doc/util.html:
+	* common/mp4/doc/writing.html:
+	* common/mp4/dref.c:
+	* common/mp4/drep.c:
+	* common/mp4/edts.c:
+	* common/mp4/elst.c:
+	* common/mp4/esds.c:
+	* common/mp4/funcprotos.h:
+	* common/mp4/gmhd.c:
+	* common/mp4/gmin.c:
+	* common/mp4/hdlr.c:
+	* common/mp4/hinf.c:
+	* common/mp4/hint.c:
+	* common/mp4/hintudta.c:
+	* common/mp4/hmhd.c:
+	* common/mp4/hnti.c:
+	* common/mp4/iods.c:
+	* common/mp4/libmp4.dsp:
+	* common/mp4/libmp4.dsw:
+	* common/mp4/matrix.c:
+	* common/mp4/maxr.c:
+	* common/mp4/mdat.c:
+	* common/mp4/mdhd.c:
+	* common/mp4/mdia.c:
+	* common/mp4/minf.c:
+	* common/mp4/moov.c:
+	* common/mp4/mpeg4ip.h:
+	* common/mp4/mvhd.c:
+	* common/mp4/nump.c:
+	* common/mp4/payt.c:
+	* common/mp4/pmax.c:
+	* common/mp4/private.h:
+	* common/mp4/quicktime.c:
+	* common/mp4/quicktime.h:
+	* common/mp4/rtphint.c:
+	* common/mp4/rtphint.h:
+	* common/mp4/sdp.c:
+	* common/mp4/sizes.h:
+	* common/mp4/smhd.c:
+	* common/mp4/stbl.c:
+	* common/mp4/stco.c:
+	* common/mp4/stsc.c:
+	* common/mp4/stsd.c:
+	* common/mp4/stsdtable.c:
+	* common/mp4/stss.c:
+	* common/mp4/stsz.c:
+	* common/mp4/stts.c:
+	* common/mp4/systems.h:
+	* common/mp4/tkhd.c:
+	* common/mp4/tmax.c:
+	* common/mp4/tmin.c:
+	* common/mp4/tpyl.c:
+	* common/mp4/trak.c:
+	* common/mp4/tref.c:
+	* common/mp4/trpy.c:
+	* common/mp4/udta.c:
+	* common/mp4/util.c:
+	* common/mp4/vmhd.c:
+	* utils/.cvsignore:
+	* utils/adtsfix.c:
+	* utils/adtsfix.dsp:
+	* utils/adtsfix.dsw:
+	* utils/adtsfix/.cvsignore:
+	* utils/adtsfix/adtsfix.c:
+	* utils/adtsfix/adtsfix.dsp:
+	* utils/adtsfix/adtsfix.dsw:
+	* utils/mp4apkt/.cvsignore:
+	* utils/mp4apkt/aac.c:
+	* utils/mp4apkt/mp3.c:
+	* utils/mp4apkt/mp4apkt.c:
+	* utils/mp4apkt/mp4apkt.dsp:
+	* utils/mp4apkt/mp4apkt.dsw:
+	* utils/mp4extract/.cvsignore:
+	* utils/mp4extract/mp4extract.c:
+	* utils/mp4extract/mp4extract.dsp:
+	* utils/mp4extract/mp4extract.dsw:
 		Added MP4 file library
 		and an utilitie to create MP4 files from aac files and one for extracting audio from a MP4 file
 
 2001-05-11  oxygene2000
+	* Makefile:
+	* Makefile.am:
+	* acconfig.h:
+	* bootstrap:
+	* config.h.in:
+	* configure.in:
+	* frontend/Makefile:
+	* frontend/Makefile.am:
+	* libfaad/Makefile:
+	* libfaad/Makefile.am:
+	* libfaad/all.h:
+	* utils.m4:
 		 New makesystem for unix-like systems based on autoconf/-make
 		and libtool
 
+	* libfaad/nok_lt_prediction.c:
 		- didn't compile on !win32 because of missing ;
 
 2001-05-09  menno
+	* in_aac.nsi:
 		More stable winamp plugin, stopping a file should work correctly now
 		Fixed NSIS install script to avoid warnings
 
 2001-05-02  menno
+	* libfaad/stdinc.h:
 		Removed unused file stdinc.h
 
+	* frontend/faad.c:
+	* frontend/faad.dsp:
+	* frontend/wav.c:
+	* frontend/wav.h:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/fastfft.c:
+	* libfaad/fastfft.h:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/hufftables.c:
+	* libfaad/intensity.c:
+	* libfaad/interface.h:
+	* libfaad/kbd_win.h:
+	* libfaad/monopred.c:
+	* libfaad/monopred.h:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/nok_ltp_common_internal.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
+	* libfaad/tns.h:
+	* libfaad/transfo.c:
+	* libfaad/transfo.h:
+	* libfaad/util.c:
+	* libfaad/util.h:
 		Added correct copyright statements
 		Restored thread safety
 
 2001-04-29  rageomatic
-		Speed, stability and streaming improvements.
-
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/libfaad.dsp:
 		Slight speed improvements.
 
 2001-04-27  menno
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/huffdec.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/util.h:
 		Made most buffers dynamically allocated
 
+	* libfaad/transfo.c:
 		Added compile option for Intel signal processing library
 
-2001-04-26  menno
-		Fixes for streaming
-		Windows API used instead of standard library
-
 2001-04-25  menno
+	* frontend/faad.c:
 		Changed command line option -o, so that it supports directories
 		with spaces
 
-2001-04-25  rageomatic
-		New streaming design, uses Winsock instead of WinInet now.
-
 2001-04-24  menno
+	* in_aac.nsi:
+	* libfaad/all.h:
 		Multichannel decoding support
 
 2001-04-23  menno
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/tns.c:
+	* libfaad/util.c:
+	* libfaad/util.h:
 		Better file buffering for winamp plugin
 		Better windows API support
 
 2001-04-22  menno
+	* libfaad/Makefile:
+	* libfaad/all.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/monopred.c:
+	* libfaad/monopred.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/tns.c:
+	* libfaad/transfo.c:
 		Added backward prediction
 		FAAD can now decode MAIN profile AAC files
 
+	* libfaad/all.h:
+	* libfaad/decoder.c:
+	* libfaad/monopred.c:
+	* libfaad/port.h:
 		Made backward prediction thread safe too
 
+	* libfaad/util.c:
+	* libfaad/util.h:
 		Added util.c file for helper functions
 
+	* libfaad/Makefile:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/huffdec.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/monopred.c:
+	* libfaad/port.h:
+	* libfaad/tns.c:
 		Bug fix
 
 2001-04-21  menno
+	* frontend/faad.c:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/decoder.c:
 		Changes to library interface
 		-better error handling
 		-better multichannel support
 
+	* libfaad/all.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
 		More multichannel fixes
 
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/interface.h:
+	* libfaad/port.h:
 		Better DSE and FIL element support
 
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/decoder.c:
 		Last change to library interface
 
 2001-04-20  menno
+	* README:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
 		Fixed ADIF decoding
 
 2001-04-19  menno
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/fastfft.c:
+	* libfaad/transfo.c:
+	* libfaad/transfo.h:
 		FFT code is thread safe now too
 
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/intensity.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
 		Made code thread safe.
 		Only FFT code has to be done now.
 
+	* libfaad/config.c:
+	* libfaad/decoder.c:
 		Changes in MPEG4 file format, mainly comments for clarification
 
 2001-04-16  menno
+	* libfaad/Makefile:
 		Higher thread priority for plugin
 		Makefile fixed
 
 2001-04-11  menno
+	* libfaad/all.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/interface.h:
+	* libfaad/nok_lt_prediction.c:
+	* utils/adtsfix.c:
 		Fixed MPEG4 object type problem
 		Use new adtsfix util to make old AAC file playable again
 
+	* libfaad/common.c:
+	* libfaad/dolby_def.h:
+	* libfaad/dolby_win.h:
+	* libfaad/kbd_win.h:
+	* libfaad/weave.h:
 		Small updates
 
 2001-04-10  menno
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/dolby_win.h:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/intensity.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
+	* libfaad/tns.h:
 		- major code cleanup
 		- better error handling
 		- tables used for KBD window when WIN_TABLE defined
 		- Somewhat better thread safety (not nearly thread safe, but a lot of data has moved)
 
+	* README:
+	* libfaad/config.c:
 		Added adts_error_check
 
+	* frontend/faad.c:
+	* frontend/faad.dsp:
 		small fix
 
-		Better error recovery for ADTS files
-
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/port.h:
+	* libfaad/tns.c:
 		Fixed another MPEG4/2 issue TNS order
 
-		Removed http streaming for now, somehow it didn't work anymore
-		fix will come later
+	* libfaad/decoder.c:
+		Better error recovery for ADTS files
 
 2001-04-06  menno
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
 		Bugfixes
 
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/huffdec.c:
 		Faster bit reading routines
 
 2001-04-05  menno
-		Fixed Mpeg2 bug
-
+	* utils/.cvsignore:
+	* utils/adtsfix.c:
+	* utils/adtsfix.dsp:
+	* utils/adtsfix.dsw:
 		ADTSFIX utility for fixing old AAC files
 
 2001-04-04  menno
+	* libfaad/block.c:
 		Another filterbank speedup
 
+	* libfaad/decoder.c:
 		Speedup in roundof
 
+	* frontend/faad.dsp:
+	* libfaad/dolby_adapt.c:
+	* libfaad/libfaad.dsp:
 		Speedup in filterbank
 
 2001-04-03  menno
+	* frontend/faad.c:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/common.c:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/nok_lt_prediction.c:
 		Big changes to library interface
 
+	* libfaad/decoder.c:
 		(more) correct decoding of mpeg2-aac
 
 2001-03-30  menno
+	* libfaad/nok_lt_prediction.h:
 		Bugfix
 
 2001-03-29  menno
+	* libfaad/block.c:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/transfo.c:
+	* libfaad/transfo.h:
 		Speedup (thanks to Ivan)
 
-		Simple file check so that plugin doesn't crash if file doesn't exist
-
+	* libfaad/bits.c:
+	* libfaad/huffdec.c:
+	* libfaad/nok_lt_prediction.h:
 		Major bugfix in bits.c, no more weird output :)
 
 2001-03-22  menno
+	* libfaad/nok_lt_prediction.h:
 		Clipping problem fixed
 
 2001-03-20  menno
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/decoder.c:
 		Bugfixes
 
 2001-03-19  menno
+	* frontend/faad.c:
+	* libfaad/decoder.c:
 		Bugfixes, mainly in channel configuration and file properties
 		Correct decoding of files other that 44.1kHz and 2 channels now
 
+	* frontend/.cvsignore:
+	* frontend/aacinfo.c:
+	* frontend/aacinfo.h:
+	* frontend/faad.dsp:
+	* frontend/faad.dsw:
+	* frontend/faad.dsw:
+	* frontend/filestream.c:
+	* frontend/filestream.h:
+	* frontend/http.c:
+	* frontend/http.h:
+	* frontend/in2.h:
+	* frontend/in_aac.c:
+	* frontend/in_aac.dsp:
+	* frontend/in_aac.dsw:
+	* frontend/in_aac.h:
+	* frontend/out.h:
+	* frontend/plugin_dlg.rc:
+	* frontend/resource.h:
+	* in_aac.nsi:
 		Moved Winamp plugin to separate directory
 
 2001-03-18  menno
+	* in_aac.nsi:
 		Added NSIS (www.nullsoft.com) installation script
 
 2001-03-13  menno
+	* frontend/.cvsignore:
+	* libfaad/.cvsignore:
 		Added .cvsignore
 
+	* frontend/plugin_dlg.rc:
+	* frontend/resource.h:
 		Made info dialog resource, although not used yet
 
 2001-02-26  menno
+	* frontend/aacinfo.c:
+	* frontend/aacinfo.h:
+	* frontend/faad.c:
+	* frontend/filestream.c:
+	* frontend/filestream.h:
+	* frontend/http.c:
+	* frontend/http.h:
+	* frontend/in_aac.c:
+	* frontend/in_aac.dsp:
+	* include/faad.h:
+	* libfaad/aacinfo.c:
+	* libfaad/all.h:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/common.c:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/filestream.c:
+	* libfaad/filestream.h:
+	* libfaad/http.c:
+	* libfaad/http.h:
+	* libfaad/huffdec.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/port.h:
+	* libfaad/portio.c:
 		Big changes to library interface
 
+	* frontend/aacinfo.c:
+	* frontend/aacinfo.h:
+	* frontend/faad.c:
+	* frontend/faad.dsp:
+	* frontend/in_aac.c:
+	* libfaad/bits.c:
+	* libfaad/bits.h:
+	* libfaad/port.h:
 		Now correctly handles files with ID3v2 tags (they are not read
 		 but get ignored)
 
 2001-02-26  oxygene
+	* libfaad/Makefile:
 		Updated sourcelist
 
 2001-02-25  menno
+	* libfaad/port.h:
 		Fixed a little mistake
 
+	* libfaad/dolby_win.h:
+	* libfaad/port.h:
 		Small changes
 
+	* frontend/in_aac.c:
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/portio.c:
 		Added calculation of KBD window
 
 2001-02-22  menno
+	* frontend/in_aac.c:
+	* include/faad.h:
+	* libfaad/aacinfo.c:
+	* libfaad/decoder.c:
+	* libfaad/port.h:
 		Started to make the library read from buffer instead of file, not nearly completed yet.
 		Faster seeking.
 
+	* libfaad/huffdec.c:
+	* libfaad/portio.c:
 		Small fixes: some of latest changes didn't seem to work so well
 		....
 
+	* frontend/faad.c:
+	* frontend/in_aac.c:
+	* libfaad/aacinfo.c:
 		Fixed time calculation (I hope...)
 		Files should end correctly now in Winamp
 		Some other small fixes
 
 2001-02-18  menno
+	* libfaad/decoder.c:
 		Removed multiple raw_data_block decoding from ADTS files, 
 		because it screwed up seeking. Will try to fix it later
 
+	* libfaad/libfaad.dsp:
 		Fixed library project files
 
 2001-02-16  oxygene
+	* libfaad/common.c:
 		Defines common functions, for now only CommonWarning and
 		CommonExit.
 
+	* libfaad/Makefile:
 		Added common.c to sourcelist.
 
+	* frontend/faad.c:
 		CommonWarning and CommonExit moved to library. Small unix
 		changes.
 
+	* frontend/Makefile:
 		Small change, added environment variable CFLAGS.
 
 2001-02-16  menno
+	* frontend/faad.dsp:
+	* libfaad/huffdec.c:
+	* libfaad/portio.c:
 		Small changes
 
+	* libfaad/all.h:
+	* libfaad/huffdec.c:
+	* libfaad/huffinit.c:
+	* libfaad/hufftables.c:
+	* libfaad/port.h:
 		Restructured Huffman decoding
 
 2001-02-14  menno
+	* frontend/faad.dsp:
+	* frontend/in_aac.dsp:
+	* libfaad/all.h:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/filestream.c:
+	* libfaad/filestream.h:
+	* libfaad/huffdec.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/port.h:
+	* libfaad/portio.c:
 		Fixed decoding of files with more than 1 raw_data_block in a
 		ADTS frame
 
 2001-02-14  oxygene
+	* Makefile:
+	* frontend/Makefile:
+	* libfaad/Makefile:
 		Install and uninstall target added.
 
 2001-02-12  menno
+	* libfaad/decoder.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
 		Fixed clipping problem
 
 2001-02-11  menno
+	* frontend/in_aac.dsp:
 		Oops
 
+	* frontend/in_aac.dsp:
+	* libfaad/decoder.c:
+	* libfaad/huffdec.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/nok_ltp_common_internal.h:
+	* libfaad/port.h:
+	* libfaad/tns.c:
 		LTP decoding now ISO compliant
 
+	* frontend/faad.dsp:
+	* libfaad/all.h:
+	* libfaad/decoder.c:
+	* libfaad/filestream.h:
+	* libfaad/huffdec.c:
+	* libfaad/huffdec1.c:
+	* libfaad/huffdec2.c:
+	* libfaad/huffdec3.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/port.h:
 		Decoder speedup, might have destroyed correct decoding of LTP, 
 		fix it tomorrow. Now go to sleep.
 
 2001-02-10  menno
+	* libfaad/filestream.h:
+	* libfaad/portio.c:
 		Inlined function
 
 2001-02-06  oxygene2000
+	* libfaad/Makefile:
 		- add new aacinfo.c to Makefile
 
 2001-02-05  menno
+	* frontend/faad.c:
+	* frontend/faad.dsp:
+	* include/faad.h:
+	* libfaad/decoder.c:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
 		Small fixes
 
+	* libfaad/aacinfo.c:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/huffdec1.c:
+	* libfaad/huffdec2.c:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/tns.c:
+	* libfaad/transfo.h:
 		Redone some of latest changes that got lost in last commit
 
+	* libfaad/portio.c:
 		Removed __inline from function
 
+	* frontend/faad.c:
+	* frontend/faad.dsp:
+	* frontend/in_aac.c:
+	* frontend/in_aac.dsp:
+	* include/faad.h:
+	* libfaad/aacinfo.c:
+	* libfaad/all.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/filestream.h:
+	* libfaad/huffdec1.c:
+	* libfaad/huffdec2.c:
+	* libfaad/huffdec3.c:
+	* libfaad/huffinit.c:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/port.h:
+	* libfaad/portio.c:
+	* libfaad/transfo.h:
 		Large decoder changes
 
+	* frontend/in_aac.c:
 		Fixed plugin
 
 2001-02-04  oxygene2000
+	* Makefile:
+	* frontend/Makefile:
+	* libfaad/Makefile:
+	* libfaad/config.c:
+	* libfaad/decoder.c:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/transfo.h:
 		- Makefiles for un*x
 		- some fixes for ansi-c compliance
 
 2001-02-01  menno
+	* frontend/faad.c:
+	* frontend/faad.dsp:
+	* frontend/faad.dsw:
+	* frontend/in2.h:
+	* frontend/in_aac.c:
+	* frontend/in_aac.dsp:
+	* frontend/in_aac.dsw:
+	* frontend/in_aac.h:
+	* frontend/out.h:
+	* frontend/plugin_dlg.rc:
+	* frontend/resource.h:
+	* frontend/wav.c:
+	* frontend/wav.h:
+	* include/faad.h:
+	* libfaad/all.h:
+	* libfaad/block.c:
+	* libfaad/block.h:
+	* libfaad/config.c:
+	* libfaad/decdata.c:
+	* libfaad/decoder.c:
+	* libfaad/dolby_adapt.c:
+	* libfaad/dolby_def.h:
+	* libfaad/dolby_win.h:
+	* libfaad/fastfft.c:
+	* libfaad/fastfft.h:
+	* libfaad/filestream.c:
+	* libfaad/filestream.h:
+	* libfaad/http.c:
+	* libfaad/http.h:
+	* libfaad/huffdec1.c:
+	* libfaad/huffdec2.c:
+	* libfaad/huffdec3.c:
+	* libfaad/huffinit.c:
+	* libfaad/hufftables.c:
+	* libfaad/intensity.c:
+	* libfaad/interface.h:
+	* libfaad/libfaad.dsp:
+	* libfaad/nok_lt_prediction.c:
+	* libfaad/nok_lt_prediction.h:
+	* libfaad/nok_ltp_common.h:
+	* libfaad/nok_ltp_common_internal.h:
+	* libfaad/pns.c:
+	* libfaad/port.h:
+	* libfaad/portio.c:
+	* libfaad/readme.txt:
+	* libfaad/stdinc.h:
+	* libfaad/stereo.c:
+	* libfaad/tns.c:
+	* libfaad/tns.h:
+	* libfaad/transfo.c:
+	* libfaad/transfo.h:
+	* libfaad/weave.h:
 		Reorganisation of code. FAAD is now a library
 
 2000-11-10  menno
+	* decoder.c:
+	* faad.c:
 		Added debug output for testing. define TEST_OUTPUT
 
 2000-10-04  menno
+	* config.c:
+	* faad.c:
+	* huffdec1.c:
 		LFE is now working correctly
 
 2000-10-03  menno
+	* all.h:
 		Multichannel fixes. All working now, except LFE channels
 
 2000-10-01  menno
+	* config.c:
+	* faad.c:
+	* huffdec1.c:
 		LFE channel fixup
 
+	* all.h:
+	* decoder.c:
+	* faad.c:
+	* portio.c:
 		Now multichannel decoding is working.
 		Not very clean yet, it still needs more work.
 
 2000-09-28  menno
+	* README:
+	* faad.c:
+	* in_aac.c:
 		Release updates
 
 2000-09-08  oxygene
+	* INSTALL.linux:
 		Changed install instructions and XMMS plugin homepage.
 
+	* Makefile:
+	* Makefile.arm:
 		faad and shared library can now be compiled at the same time.
 
 2000-08-28  oxygene
+	* Makefile:
 		Removed references to libsndfile
 
 2000-08-24  menno
+	* Makefile:
+	* Makefile.arm:
+	* wav.c:
 		Fixed Linux compile (I hope)
 
 2000-08-22  rageomatic
+	* plugin_dlg.rc:
+	* resource.h:
 		A start for a configuation dialog
 
 2000-08-22  menno
+	* faad.dsp:
+	* filestream.c:
+	* filestream.h:
+	* in_aac.dsp:
 		Small fix
 
 2000-08-21  rageomatic
+	* filestream.c:
+	* wav.c:
 		fixed some issues that created problems for linux users.
 
+	* in_aac.dsp:
 		Fixed some link issues
 
 2000-08-19  rageomatic
+	* faad.c:
+	* wav.c:
+	* wav.h:
 		Improved .wav file writing. libsndfile is not required anymore.
 
 2000-08-17  rageomatic
+	* decoder.c:
 		Winamp plugin complete. Streaming and seeking supported :D
 
+	* filestream.c:
+	* filestream.h:
+	* http.c:
+	* http.h:
+	* wav.c:
+	* wav.h:
 		New wav writing interface and new AAC file input interface.
 
+	* decoder.c:
+	* in_aac.c:
 		removed the need for libsndfile
 
+	* decoder.c:
+	* faad.c:
+	* faad.dsp:
+	* fastfft.c:
+	* huffdec1.c:
+	* huffdec2.c:
+	* huffdec3.c:
+	* in_aac.c:
+	* in_aac.dsp:
+	* nok_lt_prediction.c:
+	* port.h:
+	* portio.c:
 		Improved i/o interface, streaming added for Win32, and a few
 		small optimizations.
 
 2000-08-11  prkoat
+	* decoder.c:
+	* in_aac.c:
 		For support of mono and stereo.
 		Fixed quite a number of bugs in the Winamp Plugin.  (Esp.  File Critical Section
 		   when getting AAC info while playing the file.)
@@ -432,73 +2094,111 @@
 		prkoat
 
 2000-08-10  menno
+	* decoder.c:
 		Bugfix 1048 -> 1024
 
 2000-07-22  prkoat
+	* decoder.c:
+	* faad.c:
+	* port.h:
 		Support for SCE (mono files)
 
 2000-05-18  pouwelse
+	* Makefile.arm:
 		For compiling on the Arm architecture a new Makefile is
 		included.
 
 2000-04-10  rageomatic
+	* portio.c:
 		Added HTTP streaming, disabled for now though.
 
+	* in_aac.c:
 		Fixed playlist bug, disabled the display of changing bitrates
 
 2000-03-23  lenox
+	* huffdec2.c:
 		restored gain control bits in the stream
 
 2000-03-23  menno
+	* nok_lt_prediction.h:
 		Added double_to_int macro
 
 2000-03-12  lenox
+	* huffdec2.c:
 		removed gain control
 
+	* all.h:
+	* faad.c:
+	* huffdec3.c:
 		changed win32 defines
 
 2000-02-27  rageomatic
+	* all.h:
 		moved double_to_int macro
 
+	* decoder.c:
 		final rounding uses double_to_int macro
 
+	* nok_lt_prediction.c:
 		moved double_to_int
 
+	* in_aac.c:
 		small fix with HTTP streams
 
 2000-02-23  thebard
+	* Makefile:
+	* profiling.txt:
 		Profiling cruff.
 
 2000-02-22  thebard
+	* Makefile:
 		Added note about compilation options.
 
+	* huffdec2.c:
 		Just added a superflous __inline before getbits. It looks like
 		gcc is already auto inlining getbits with -O3 or higher. This
 		is jsut forcing it to on other compilers, or if gcc is being
 		stupid.
 
+	* Makefile:
 		Update the Recomended compile opts.
 
 2000-02-22  menno
+	* pns.c:
 		Restored PNS quality
 
+	* huffdec2.c:
 		Fixed WIN32 compilation
 
 2000-02-21  lenox
+	* decoder.c:
 		calculation of play length is correct now only for 128kbps (
 		with ADTS headers).
 
 2000-02-20  thebard
+	* INSTALL.linux:
 		Added a note regarding the XMMS aac plugin, and that you MUST use the cvs
 		version of the plugin to get things to work correctly.
 
+	* Makefile:
+	* faad.c:
+	* huffdec2.c:
+	* nok_lt_prediction.c:
+	* profiling.txt:
 		Initial work on profiling. I think I can squeeze more speed. 
 		Started a profiling log so we can chart the speed increases.
 
+	* Makefile:
+	* nok_lt_prediction.c:
+	* profiling.txt:
 		Our first speedup. 5.12%.
 
+	* Makefile:
+	* huffdec2.c:
+	* profiling.txt:
 		More profiling tweakings. Not much exciting.
 
+	* huffdec2.c:
 		 Macroized getbits. It was slower than gcc's automatic inlining
 		of getbits. If I explictly inline getbits its the same as if
 		gcc inlined it. Go figure. Anyways, I think get bits is a lost
@@ -508,181 +2208,371 @@
 		out how to do getbits more than jsut one at a whack.
 
 2000-02-19  lenox
+	* fastfft.c:
+	* transfo.h:
 		removed 2048 and 256 FFT
 
+	* decoder.c:
 		fixed calculation of playing length in plugin
 
 2000-02-19  thebard
+	* README:
+	* faad.c:
 		Added -w for writing to stdout. It works, but there is a bit of static
 		at teh beginning and end as the printf's of version and such are adding
 		garbage into the the stdout. I'll fix it shortly.
 
+	* faad.c:
 		Ripped out all the \r's so that things print correctly on unix
 		boxen.
 
+	* faad.c:
 		Reorganized so that there is no output except the raw wav data when -w is
 		on the command line.
 
 2000-02-19  oxygene
+	* Makefile:
 		Corrected a typo in uninstall section.
 
+	* Makefile:
 		ldconfig is now only run when it should
 
 2000-02-19  rageomatic
+	* README:
 		added my email
 
+	* faad.dsp:
+	* in_aac.dsp:
 		removed useless libraries from build (winspool.lib, odbc
 		libraries, etc)
 
+	* faad.dsp:
+	* in_aac.dsp:
 		removed useless libraries (to make binaries smaller)
 
+	* pns.c:
 		changed and optimized vector generation routine
 
 2000-02-18  thebard
+	* faad.c:
 		Fixed the unix timing problem.
 
 2000-02-18  menno
+	* config.c:
+	* decoder.c:
+	* faad.h:
+	* in_aac.c:
+	* port.h:
+	* portio.c:
 		RageAMP's latest changes
 
 2000-02-18  oxygene
+	* README:
 		New name for readme
 
+	* readme:
 		File renamed to README
 
+	* portio.c:
 		Changed function GetInputFileLength to comply with ANSI C
 		standard.
 
 2000-02-17  thebard
+	* Makefile:
 		Makefile now uses the env variable CFLAGS (like msot sname
 		makefiles do) for compiler flags. -g and -DHAS_ULONG are still
 		hard coded.
 
 2000-02-17  menno
+	* decoder.c:
 		Little fix
 
+	* decoder.c:
+	* faad.h:
+	* in_aac.c:
+	* port.h:
+	* portio.c:
 		Added seeking support for files with ADTS headers
 
 2000-02-16  oxygene
+	* mkinstalldirs:
 		Used install command to do the same task.
 
+	* Makefile:
 		Install command used in install section instead of .
 		mkinstalldirs, faad.h added to install section, uninstall
 		section added.
 
+	* Makefile:
 		gcc set as default compiler.
 
 2000-02-15  menno
+	* in_aac.c:
 		Bugfix and ADTS now used in info box
 
+	* all.h:
+	* decdata.c:
+	* decoder.c:
 		Added preliminary reading of ADTS headers
 
+	* config.c:
 		Bug fixed
 
 2000-02-11  lenox
+	* block.c:
+	* block.h:
+	* dolby_adapt.c:
+	* port.h:
+	* portio.c:
 		cleanup
 
 2000-02-10  rageomatic
+	* huffdec3.c:
 		cleanup, minor optimization
 
+	* huffdec3.c:
 		cleanup
 
 2000-02-07  oxygene2000
+	* all.h:
+	* huffdec3.c:
+	* portio.c:
 		Make it compileable with linux (#ifdef WIN32)
 
 2000-01-22  rageomatic
+	* block.c:
+	* block.h:
 		some cleanup
 
+	* all.h:
+	* decoder.c:
+	* portio.c:
+	* stdinc.h:
 		some cleanup, got rid of all references to 'int stop_now'
 
+	* all.h:
+	* decoder.c:
+	* in_aac.c:
+	* portio.c:
 		some cleanup, minor changes
 
+	* block.c:
 		got rid of register and static variable in InitBlock
 
 2000-01-21  menno
+	* readme:
 		Updated readme
 
+	* in_aac.c:
 		Version upgraded
 
 2000-01-19  menno
+	* decoder.c:
+	* huffdec1.c:
+	* huffdec2.c:
+	* nok_lt_prediction.c:
+	* nok_ltp_common.h:
 		LTP fixed and some minor changes
 
 2000-01-14  menno
+	* in_aac.c:
 		Fixed bitrate indicator
 
+	* all.h:
+	* block.c:
+	* config.c:
+	* decdata.c:
+	* decoder.c:
+	* dolby_win.h:
+	* fastfft.c:
+	* huffdec1.c:
+	* huffdec2.c:
+	* huffdec3.c:
+	* huffinit.c:
+	* intensity.c:
+	* interface.h:
+	* nok_lt_prediction.c:
+	* pns.c:
+	* port.h:
+	* stdinc.h:
+	* tns.c:
+	* transfo.c:
 		Big cleanup
 
 2000-01-13  oxygene
+	* mkinstalldirs:
 		Linux shell script to make install dirs.
 
+	* faad.h:
 		New name for aacdec.h
 
+	* aacdec.h:
 		*** empty log message ***
 
+	* nok_lt_prediction.c:
+	* nok_lt_prediction.h:
 		Corrected a wrong type
 
+	* decoder.c:
+	* faad.c:
+	* in_aac.c:
 		Changed aacdec.h --> faad.h
 
+	* Makefile:
 		Changed aacdec --> faad, added mkinstalldirs in install target
 
 2000-01-10  rageomatic
+	* portio.c:
 		some cleanup
 
+	* port.h:
 		cleared function declarations that werent referenced and/or exist
 
+	* aacdec.h:
 		removed the unreferenced 'void extra_init()'
 
 2000-01-09  lenox
+	* faad.dsp:
+	* in_aac.dsp:
 		new dirs for output
 
+	* huffdec1.c:
+	* nok_lt_prediction.c:
 		fixed bug with second channel and initialization in  LTP
 
 2000-01-09  menno
+	* nok_lt_prediction.c:
 		Bugfix
 
+	* huffdec1.c:
+	* nok_lt_prediction.c:
 		restored previous change
 
 2000-01-09  rageomatic
+	* decoder.c:
+	* faad.c:
+	* in_aac.c:
 		changed output of aac_decode_frame(...)
 
 2000-01-08  lenox
+	* dolby_adapt.c:
+	* faad.c:
+	* huffdec1.c:
+	* huffdec2.c:
+	* huffdec3.c:
+	* portio.c:
+	* transfo.c:
 		some cleanup
 
+	* Makefile:
+	* faad.dsp:
+	* in_aac.dsp:
 		added pns.c
 
+	* block.c:
+	* config.c:
+	* decoder.c:
+	* dolby_win.h:
+	* fastfft.c:
+	* huffdec2.c:
+	* huffdec3.c:
+	* in_aac.c:
+	* nok_lt_prediction.c:
+	* nok_ltp_common_internal.h:
+	* pns.c:
 		removed 'static' from global vars and functions
 
 2000-01-06  menno
+	* decoder.c:
+	* huffdec2.c:
+	* interface.h:
+	* pns.c:
+	* port.h:
+	* stereo.c:
 		Added support for Perceptual Noise Substitution (PNS).
 
 2000-01-06  lenox
+	* Makefile:
+	* all.h:
+	* decoder.c:
+	* faad.dsp:
+	* fastfft.c:
+	* fastfft.h:
+	* fastifft.c:
+	* fastifft.h:
+	* huffdec2.c:
+	* in_aac.dsp:
+	* transfo.c:
+	* transfo.h:
 		new restructured FFT and MDCT
 
 2000-01-05  menno
+	* Makefile:
+	* all.h:
+	* block.c:
+	* decoder.c:
+	* dolby_adapt.c:
+	* faad.dsp:
+	* huffdec1.c:
+	* huffdec2.c:
+	* in_aac.dsp:
+	* port.h:
+	* transfo.c:
 		Added Long Term Prediction, the decoder will now not play files
 		encoded with backward prediction. But previous versions of FAAC
 		never used it.
 
+	* nok_lt_prediction.c:
+	* nok_lt_prediction.h:
+	* nok_ltp_common.h:
+	* nok_ltp_common_internal.h:
 		Files for LTP
 
+	* monopred.c:
+	* monopred.h:
 		Removed backward prediction
 
 2000-01-03  oxygene
+	* Makefile:
 		Added lib and install target.
 
+	* INSTALL.linux:
 		Installation instructions for linux.
 
 2000-01-03  menno
+	* decoder.c:
 		Keeping winamp plugin compilable
 
 2000-01-02  oxygene
+	* aacdec.h:
+	* block.c:
+	* block.h:
+	* decoder.c:
+	* faad.c:
+	* faad.dsp:
+	* fastifft.c:
+	* fastifft.h:
+	* in_aac.dsp:
+	* transfo.c:
+	* transfo.h:
 		*** empty log message ***
 
+	* transfo.c:
+	* transfo.c:
 		#ifdef WIN32 added
 
 1999-12-20  lenox
+	* faad.dsp:
+	* in_aac.dsp:
 		added fastifft.c
 
+	* fastifft.c:
+	* fastifft.h:
+	* transfo.c:
+	* transfo.h:
 		new IFFT
 
+	* block.c:
+	* block.h:
 		added reference to transfo module
 

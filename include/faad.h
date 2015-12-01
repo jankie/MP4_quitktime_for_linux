@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: faad.h,v 1.15 2001/09/21 14:01:55 eraser Exp $
+ * $Id: faad.h,v 1.16 2001/10/26 11:57:00 menno Exp $
  */
 
 #ifndef _AACDEC_H
@@ -75,7 +75,8 @@ int FAADAPI faacDecGetProgConfig(faacDecHandle hDecoder,
 int FAADAPI faacDecDecode(faacDecHandle hDecoder,
                           unsigned char *buffer,
                           unsigned long *bytesconsumed,
-                          short *sample_buffer);
+                          short *sample_buffer,
+                          unsigned long *samples);
 
 void FAADAPI faacDecClose(faacDecHandle hDecoder);
 

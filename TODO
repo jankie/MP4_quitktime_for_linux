@@ -1,9 +1,4 @@
 
-- DONE: Setting default configuration on init
-- Buffer whole files
 - Channel mixdown for multichannel files
 - Better multichannel support
 - Add mp4 file reading to the winamp plugin and the frontend
-- Write Winamp3 plugin
-- Introduce Sonique plugin
-- More plugins...

@@ -193,7 +193,15 @@ SOURCE=..\src\utils.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE="E:\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"
+# End Source File
+# Begin Source File
+
 SOURCE=..\config.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\win32\config.h
 # End Source File
 # Begin Source File
 
@@ -254,6 +262,14 @@ SOURCE=..\include\id3\uint28.h
 # Begin Source File
 
 SOURCE=..\include\id3\utils.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\zlib\include\zconf.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\zlib\include\zlib.h
 # End Source File
 # End Group
 # End Target

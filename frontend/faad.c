@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: faad.c,v 1.26 2001/10/08 08:54:57 menno Exp $
+ * $Id: faad.c,v 1.27 2001/10/26 11:57:00 menno Exp $
  */
 
 #ifdef _WIN32
@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
     char percent[200];
 
     long buffercount;
-    unsigned long bytesconsumed, fileread, bytecount;
+    unsigned long bytesconsumed, samples, fileread, bytecount;
     unsigned char *buffer;
 
     unsigned long samplerate, channels, tagsize;
@@ -306,7 +306,7 @@ int main(int argc, char *argv[])
             buffercount = 0;
         }
 
-        result = faacDecDecode(hDecoder, buffer, &bytesconsumed, sample_buffer);
+        result = faacDecDecode(hDecoder, buffer, &bytesconsumed, sample_buffer, &samples);
         if (result == FAAD_FATAL_ERROR)
             fprintf(stderr, "Fatal error decoding file\n");
         if (result == FAAD_ERROR)
@@ -325,7 +325,7 @@ int main(int argc, char *argv[])
         SetConsoleTitle(percent);
 #endif
 
-        if (result == FAAD_OK)
+        if ((result == FAAD_OK) && (samples > 0))
         {
             if(first_time)
             {

@@ -1,0 +1,212 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "adtsfix"=.\utils\adtsfix\adtsfix.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "cnv_aacpcm"=.\plugins\winamp3\cnv_aacpcm.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libfaad
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "faad"=.\frontend\faad.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libfaad
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "id3lib"=.\common\id3lib\libprj\id3lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name zlib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "id3v2edit"=.\utils\id3v2edit\id3v2edit.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name id3lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "in_aac"=.\plugins\winamp\in_aac.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name id3lib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name libfaad
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "libfaad"=.\libfaad\libfaad.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libfaad_dll"=.\libfaad\libfaad_dll.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "libmp4"=.\common\mp4\libmp4.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "mp4apkt"=.\utils\mp4apkt\mp4apkt.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libmp4
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "mp4extract"=.\utils\mp4extract\mp4extract.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libmp4
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "psystrip"=.\utils\psystrip\psystrip.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "sonique"=.\plugins\sonique\sonique.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name libfaad
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "zlib"=.\common\id3lib\zlib\prj\zlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

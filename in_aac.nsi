@@ -16,5 +16,5 @@ InstallDirRegKey HKEY_CURRENT_USER SOFTWARE\Winamp\FAAD ""
 Section "FAAD Winamp AAC plugin"
 SectionIn 1
 SetOutPath $INSTDIR
-File winamp\Release\in_aac.dll
+File plugins\winamp\Release\in_aac.dll
 SectionEnd

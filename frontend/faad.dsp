@@ -104,7 +104,15 @@ SOURCE=.\wav.c
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE="E:\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"
+# End Source File
+# Begin Source File
+
 SOURCE=..\include\faad.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\common\getopt\getopt.h
 # End Source File
 # Begin Source File
 

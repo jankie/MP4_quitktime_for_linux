@@ -24,7 +24,7 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: all.h,v 1.30 2001/09/04 18:39:13 menno Exp $
+ * $Id: all.h,v 1.31 2001/10/26 11:57:00 menno Exp $
  */
 
 #ifndef _all_h_
@@ -415,7 +415,8 @@ int FAADAPI faacDecGetProgConfig(faacDecHandle hDecoder,
 int FAADAPI faacDecDecode(faacDecHandle hDecoder,
                           unsigned char *buffer,
                           unsigned long *bytesconsumed,
-                          short *sample_buffer);
+                          short *sample_buffer,
+                          unsigned long *samples);
 
 void FAADAPI faacDecClose(faacDecHandle hDecoder);
 
