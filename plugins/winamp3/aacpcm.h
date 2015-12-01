@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: aacpcm.h,v 1.4 2001/10/26 11:57:00 menno Exp $
+ * $Id: aacpcm.h,v 1.6 2001/11/06 14:13:08 menno Exp $
  */
 
 #ifndef _AACPCM_H
@@ -57,8 +57,16 @@ public:
 private:
     faacDecHandle hDecoder;
 
-    char *buffer;
-    long buffercount, bytecount;
-    int init_called;
+	DWORD	dwChannels;
+	DWORD	dwSamprate;
+	DWORD	lSize; // aac filesize
+
+	DWORD	bytes_read;		// from file
+	DWORD	bytes_consumed;	// by faadDecDecode
+	long	bytes_into_buffer;
+
+    BYTE	*buffer;
+    short	*bufout;
+//	FILE *fil;
 };
 #endif

@@ -16,104 +16,167 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: aacpcm.cpp,v 1.6 2001/10/26 11:57:00 menno Exp $
+ * $Id: aacpcm.cpp,v 1.8 2001/11/06 14:13:08 menno Exp $
  */
 
+#include <stdio.h>
 #include "aacpcm.h"
+
+#define AAC_BUF_SIZE	(768*2)
 
 AacPcm::AacPcm()
 {
-    hDecoder = faacDecOpen();
-    buffercount = 0;
-    bytecount = 0;
-    init_called = 0;
-
-    buffer = new char[768*2];
-    memset(buffer, 0, 768*2);
+    hDecoder=0;
+    buffer=0;
+    bufout=0;
 }
 
 AacPcm::~AacPcm()
 {
-    delete buffer;
-    faacDecClose(hDecoder);
+	if(hDecoder)
+		faacDecClose(hDecoder);
+	if(buffer)
+		delete buffer;
+	if(bufout)
+		delete bufout;
+//	fclose(fil);
 }
+
+#define ERROR_getInfos(str) \
+	{ \
+		bytes_into_buffer=-1; \
+		infos->status(str); \
+	    return 1; \
+	}
 
 int AacPcm::getInfos(MediaInfo *infos)
 {
-    /*
-    svc_fileReader *reader = infos->getReader();
-    if (!reader)
-        return 0;
-    */
+DWORD	tmp;
 
     infos->setTitle(Std::filename(infos->getFilename()));
-    infos->setInfo(StringPrintf("%ihz %ibps %ich", 44100, 16, 2));
+
+	if(hDecoder)
+	    infos->setInfo(StringPrintf("%ihz %ibps %ich", dwSamprate, 16, dwChannels));
+	else
+	{
+	svc_fileReader *reader = infos->getReader();
+		if (!reader)
+			ERROR_getInfos("File doesn\'t exists")
+
+	    buffer=new BYTE[AAC_BUF_SIZE];
+		if(!buffer)
+			ERROR_getInfos("Error: buffer=NULL")
+
+		lSize=reader->getLength();
+		if(lSize>AAC_BUF_SIZE)
+			tmp=AAC_BUF_SIZE;
+		else
+			tmp=lSize;
+
+		bytes_into_buffer=bytes_read=reader->read((char *)buffer, tmp);
+		if(bytes_read!=tmp)
+			ERROR_getInfos("Read failed!")
+
+	    hDecoder = faacDecOpen();
+
+	faacDecConfigurationPtr config;
+		config = faacDecGetCurrentConfiguration(hDecoder);
+		config->defSampleRate = 44100;
+		faacDecSetConfiguration(hDecoder, config);
+
+		if((bytes_consumed=faacDecInit(hDecoder, buffer, &dwSamprate, &dwChannels))<0)
+			ERROR_getInfos("faacDecInit failed!")
+		else
+		    infos->setInfo(StringPrintf("%ihz %ibps %ich", dwSamprate, 16, dwChannels));
+
+		bytes_into_buffer-=bytes_consumed;
+
+		bufout=new short[1024*dwChannels];
+		if(!bufout)
+			ERROR_getInfos("Error: bufout=NULL")
+
+//		fil=fopen("c:\\prova.wav","wb");
+	}
 
     return 0;
 }
 
+#define ERROR_processData(str) \
+	{ \
+		bytes_into_buffer=-1; \
+		if(str) \
+			infos->status(str); \
+	    chunk_list->setChunk("PCM", bufout, 0, ci); \
+	    return 0; \
+	}
+
 int AacPcm::processData(MediaInfo *infos, ChunkList *chunk_list, bool *killswitch)
 {
-    unsigned long bytesconsumed;
-    unsigned long sr, ch;
-    int k, result;
-    int last_frame = 0;
-    char *samplebuffer;
+DWORD		read,
+			tmp,
+			shorts_decoded=0;
+long		result=0;
+ChunkInfosI *ci = new ChunkInfosI();
 
-    svc_fileReader *reader = infos->getReader();
-    if (!reader)
-        return 0;
+	ci->addInfo("srate", dwSamprate); 
+    ci->addInfo("bps", 16); 
+	ci->addInfo("nch", dwChannels); 
 
-    // I assume that it lets me read from the beginning of the file here
-    if (!init_called)
-    {
-        buffercount = 0;
-        reader->read(buffer, 768*2);
-        bytecount += 768*2;
+	if(bytes_into_buffer<0)
+		ERROR_processData(0);
 
-        buffercount = faacDecInit(hDecoder, (unsigned char*)buffer, &sr, &ch);
+svc_fileReader *reader = infos->getReader();
+	if(!reader)
+		ERROR_processData("File doesn\'t exists");
 
-        init_called = 1;
-    }
+	do
+	{
+		if(bytes_consumed>0 && bytes_into_buffer>=0)
+		{
+			if(bytes_into_buffer)
+				memcpy(buffer,buffer+bytes_consumed,bytes_into_buffer);
 
-    if (buffercount > 0)
-    {
-        bytecount += buffercount;
+			if(bytes_read<lSize)
+			{
+				if(bytes_read+bytes_consumed<lSize)
+					tmp=bytes_consumed;
+				else
+					tmp=lSize-bytes_read;
+				read=reader->read((char *)buffer+bytes_into_buffer, tmp);
+				if(read==tmp)
+				{
+					bytes_read+=read;
+					bytes_into_buffer+=read;
+				}
+				else
+					infos->status("Read failed!"); // continue until bytes_into_buffer<1
+			}
+			else
+				if(bytes_into_buffer)
+					memset(buffer+bytes_into_buffer, 0, bytes_consumed);
+		}
 
-        for (k = 0; k < (768*2 - buffercount); k++)
-            buffer[k] = buffer[k + buffercount];
+		if(bytes_into_buffer<1)
+			if(bytes_read<lSize)
+				ERROR_processData("Buffer empty!")
+			else
+				return 0;
 
-        reader->read(buffer + (768*2) - buffercount, buffercount);
-        buffercount = 0;
-    }
+		result=faacDecDecode(hDecoder, buffer, &bytes_consumed, (short*)bufout, &shorts_decoded);
+		bytes_into_buffer-=bytes_consumed;
+	}while(!shorts_decoded || result==FAAD_OK_CHUPDATE);
 
-    samplebuffer = new char[4096];
 
-    result = faacDecDecode(hDecoder, (unsigned char*)buffer, &bytesconsumed, (short*)samplebuffer);
-    if (result == FAAD_FATAL_ERROR) {
-        last_frame = 1;
-    }
+	if(result==FAAD_FATAL_ERROR || result==FAAD_ERROR)
+		ERROR_processData("FAAD_FATAL_ERROR or FAAD_ERROR");
 
-    buffercount += bytesconsumed;
-    bytecount += bytesconsumed;
+	shorts_decoded*=sizeof(short);
 
-    // getLength returns the size in shorts
-    if (bytecount >= reader->getLength()*2)
-        last_frame = 1;
+    chunk_list->setChunk("PCM", bufout, shorts_decoded, ci);
+//	fwrite(bufout,1,bytesDec,fil);
 
-    ChunkInfosI *ci = new ChunkInfosI();
-    /*
-    ci->addInfo("srate", samplerate);
-    ci->addInfo("bps", bps);
-    ci->addInfo("nch", nch);
-    */
-    ci->addInfo("srate", 44100);
-    ci->addInfo("bps", 16);
-    ci->addInfo("nch", 2);
+    if(!shorts_decoded)
+		ERROR_processData(0);
 
-    chunk_list->setChunk("PCM", samplebuffer, 4096, ci);
-
-    if (last_frame)
-        return 0;
     return 1;
 }

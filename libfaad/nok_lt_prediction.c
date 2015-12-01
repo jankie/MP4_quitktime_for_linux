@@ -24,7 +24,7 @@ Copyright (c)1997.
 
 ***************************************************************************/
 /*
- * $Id: nok_lt_prediction.c,v 1.21 2001/09/24 07:31:58 menno Exp $
+ * $Id: nok_lt_prediction.c,v 1.25 2001/12/27 15:23:43 menno Exp $
  */
 
 #ifdef WIN32
@@ -169,8 +169,8 @@ void nok_lt_decode(faacDecHandle hDecoder, int max_sfb, int *sbk_prediction_used
 
     if ((sbk_prediction_used[0] = faad_getbits(&hDecoder->ld, LEN_LTP_DATA_PRESENT)))
     {
-        delay[0] = faad_getbits(&hDecoder->ld, LEN_LTP_LAG);
-        *weight = codebook[faad_getbits(&hDecoder->ld, LEN_LTP_COEF)];
+        delay[0] = faad_getbits(&hDecoder->ld, 11);
+        *weight = codebook[faad_getbits(&hDecoder->ld, 3)];
 
         last_band = (max_sfb < NOK_MAX_LT_PRED_LONG_SFB
             ? max_sfb : NOK_MAX_LT_PRED_LONG_SFB) + 1;

@@ -16,18 +16,21 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: aacinfo.c,v 1.2 2001/10/20 20:31:17 rageomatic Exp $
+ * $Id: aacinfo.c,v 1.3 2001/12/21 12:58:42 menno Exp $
  */
 
-#define WIN32_MEAN_AND_LEAN
+#ifdef WIN32
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
+#endif
+#include <malloc.h>
 #include "filestream.h"
 #include "aacinfo.h"
 
 #define ADIF_MAX_SIZE 30 /* Should be enough */
 #define ADTS_MAX_SIZE 10 /* Should be enough */
 
-const int sample_rates[] = {96000,88200,64000,48000,44100,32000,24000,22050,16000,12000,11025,8000};
+static int sample_rates[] = {96000,88200,64000,48000,44100,32000,24000,22050,16000,12000,11025,8000};
 
 static int read_ADIF_header(FILE_STREAM *file, faadAACInfo *info)
 {
@@ -43,23 +46,22 @@ static int read_ADIF_header(FILE_STREAM *file, faadAACInfo *info)
 		return -1;
 
     /* copyright string */
-    if(buffer[4] & 128)
+    if(buffer[0] & 0x80)
         skip_size += 9; /* skip 9 bytes */
 
-    bitstream = buffer[4 + skip_size] & 16;
-    info->bitrate = ((unsigned int)(buffer[4 + skip_size] & 0x0F)<<19)|
-        ((unsigned int)buffer[5 + skip_size]<<11)|
-        ((unsigned int)buffer[6 + skip_size]<<3)|
-        ((unsigned int)buffer[7 + skip_size] & 0xE0);
+    bitstream = buffer[0 + skip_size] & 0x10;
+    info->bitrate = ((unsigned int)(buffer[0 + skip_size] & 0x0F)<<19)|
+        ((unsigned int)buffer[1 + skip_size]<<11)|
+        ((unsigned int)buffer[2 + skip_size]<<3)|
+        ((unsigned int)buffer[3 + skip_size] & 0xE0);
 
-    if (bitstream == 0) {
-        info->object_type = ((buffer[9 + skip_size]&0x01)<<1)|((buffer[10 + skip_size]&0x80)>>7);
-        sf_idx = (buffer[10 + skip_size]&0x78)>>3;
-        info->channels = ((buffer[10 + skip_size]&0x07)<<1)|((buffer[11 + skip_size]&0x80)>>7);
+    if (bitstream == 0)
+    {
+        info->object_type =  ((buffer[6 + skip_size]&0x01)<<1)|((buffer[7 + skip_size]&0x80)>>7);
+        sf_idx = (buffer[7 + skip_size]&0x78)>>3;
     } else {
-        info->object_type = (buffer[7 + skip_size] & 0x18)>>3;
-        sf_idx = ((buffer[7 + skip_size] & 0x07)<<1)|((buffer[8 + skip_size] & 0x80)>>7);
-        info->channels = (buffer[8 + skip_size]&0x78)>>3;
+        info->object_type = (buffer[4 + skip_size] & 0x18)>>3;
+        sf_idx = ((buffer[4 + skip_size] & 0x07)<<1)|((buffer[5 + skip_size] & 0x80)>>7);
     }
     info->sampling_rate = sample_rates[sf_idx];
 
@@ -126,7 +128,7 @@ static int read_ADTS_header(FILE_STREAM *file, faadAACInfo *info, unsigned long 
         } else { /* MPEG-2 */
             info->version = 2;
             frame_length = ((((unsigned int)buffer[3] & 0x3)) << 11)
-                | (((unsigned int)buffer[4]) << 3) | (buffer[5] >> 5);
+            | (((unsigned int)buffer[4]) << 3) | (buffer[5] >> 5);
         }
 
         t_framelength += frame_length;
@@ -147,8 +149,10 @@ static int read_ADTS_header(FILE_STREAM *file, faadAACInfo *info, unsigned long 
 		/* NOTE: While simply skipping ahead by reading may seem to be more work than seeking,
 			it is actually much faster, and keeps compatibility with streaming */
 		for(i=0; i < frame_length - ADTS_MAX_SIZE; i++)
+        {
 			if(read_byte_filestream(file) < 0)
 				break;
+        }
     }
 
 	if(seek_table_len)
@@ -192,6 +196,8 @@ int get_AAC_format(char *filename, faadAACInfo *info, unsigned long **seek_table
     unsigned char adxx_id[5];
     unsigned long tmp;
 
+    memset(info, 0, sizeof(faadAACInfo));
+
     file = open_filestream(filename);
 
     if(file == NULL)
@@ -204,7 +210,7 @@ int get_AAC_format(char *filename, faadAACInfo *info, unsigned long **seek_table
 
     if (StringComp(buffer, "ID3", 3) == 0)
 	{
-		int i;
+		unsigned int i;
 
         /* high bit is not used */
         tagsize = (buffer[6] << 21) | (buffer[7] << 14) |
@@ -294,3 +300,64 @@ int StringComp(char const *str1, char const *str2, unsigned long len)
 
     return c1 - c2;
 }
+
+#ifdef TEST
+/* Program to test aacinfo functionality */
+
+#include <stdio.h>
+
+void main(int argc, char *argv[])
+{
+    faadAACInfo info;
+    unsigned long *seek_table = NULL;
+    int seek_table_len = 0;
+    char *header, *object;
+
+    if (argc < 2)
+    {
+        fprintf(stderr, "USAGE: aacinfo aacfile.aac\n");
+        return;
+    }
+
+    get_AAC_format(argv[1], &info, &seek_table, &seek_table_len);
+
+    fprintf(stdout, "MPEG version: %d\n", info.version);
+    fprintf(stdout, "channels: %d\n", info.channels);
+    fprintf(stdout, "sampling_rate: %d\n", info.sampling_rate);
+    fprintf(stdout, "bitrate: %d\n", info.bitrate);
+    fprintf(stdout, "length: %.3f\n", (float)info.length/1000.0);
+
+    switch (info.object_type)
+    {
+    case 0:
+        object = "MAIN";
+        break;
+    case 1:
+        object = "LC";
+        break;
+    case 2:
+        object = "SSR";
+        break;
+    case 3:
+        object = "LTP";
+        break;
+    }
+    fprintf(stdout, "object_type: %s\n", object);
+
+    switch (info.headertype)
+    {
+    case 0:
+        header = "RAW";
+        break;
+    case 1:
+        header = "ADIF";
+        break;
+    case 2:
+        header = "ADTS";
+        break;
+    }
+    fprintf(stdout, "headertype: %s\n", header);
+
+}
+
+#endif

@@ -25,7 +25,7 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: decoder.c,v 1.53 2001/10/26 11:57:00 menno Exp $
+ * $Id: decoder.c,v 1.55 2002/01/04 13:35:06 menno Exp $
  */
 
 #ifdef WIN32
@@ -187,7 +187,6 @@ faacDecHandle FAADAPI faacDecOpen()
     hDecoder->unscambled512 = AllocMemory(512*sizeof(int));
 
     SetMemory(hDecoder->lp_store, 0, MAXBANDS*sizeof(int));
-    SetMemory(hDecoder->noise_state_save, 0, MAXBANDS*sizeof(long));
 
     for(i=0; i<Winds; i++)
     {
@@ -523,7 +522,7 @@ int FAADAPI faacDecDecode(faacDecHandle hDecoder,
         for (ch=0; ch < mip->nch; ch++)
         {
 /* much faster FTOL */
-#ifndef OLD_FTOL
+#ifndef ENDIAN_SAFE
             float ftemp;
             /* ftemp = truncate(data[ch][i]) + 0xff8000; */
             ftemp = hDecoder->data[ch][i] + 0xff8000;
@@ -539,7 +538,7 @@ int FAADAPI faacDecDecode(faacDecHandle hDecoder,
     faad_byte_align(&hDecoder->ld);
 
     *bytesconsumed = bit2byte(faad_get_processed_bits(&hDecoder->ld));
-    if (hDecoder->frameNum > 2)
+    if (hDecoder->frameNum > 1)
         *samples = 1024*mip->nch;
     else
         *samples = 0;

@@ -24,7 +24,7 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: huffdec.c,v 1.28 2001/09/24 07:31:58 menno Exp $
+ * $Id: huffdec.c,v 1.29 2001/12/07 08:41:15 menno Exp $
  */
 
 #ifdef WIN32
@@ -238,9 +238,9 @@ static int get_ics_info(faacDecHandle hDecoder, byte *win, byte *wshape, byte *g
 
                 if(stereo_flag)
                     nok_lt_decode(hDecoder, *max_sfb, nok_ltp_status_right->sbk_prediction_used,
-                    nok_ltp_status_right->sfb_prediction_used,
-                    &nok_ltp_status_right->weight,
-                    nok_ltp_status_right->delay);
+                        nok_ltp_status_right->sfb_prediction_used,
+                        &nok_ltp_status_right->weight,
+                        nok_ltp_status_right->delay);
             } else {
                 nok_ltp_status->sbk_prediction_used[0] = 0;
                 if(stereo_flag)

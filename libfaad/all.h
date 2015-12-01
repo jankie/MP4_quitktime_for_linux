@@ -24,7 +24,7 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: all.h,v 1.31 2001/10/26 11:57:00 menno Exp $
+ * $Id: all.h,v 1.32 2002/01/04 13:35:19 menno Exp $
  */
 
 #ifndef _all_h_
@@ -383,8 +383,6 @@ typedef struct {
     int first_cpe;
 
     /* PNS data */
-    long cur_noise_state;
-    long noise_state_save[MAXBANDS];
     int lp_store[MAXBANDS];
 
     /* tables */

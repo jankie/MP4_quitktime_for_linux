@@ -22,38 +22,29 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: pns.c,v 1.9 2001/09/04 18:39:14 menno Exp $
+ * $Id: pns.c,v 1.10 2002/01/04 13:34:44 menno Exp $
  */
 
 #include "all.h"
 
 
-#define MEAN_NRG 1.5625e+18      /* Theory: (2^31)^2 / 3 = 1.537228e+18 */
+#define MEAN_NRG 1.537228e+18      /* Theory: (2^31)^2 / 3 = 1.537228e+18 */
 
-static void random2(long *seed)
+static long random2(long *seed)
 {
     *seed = (1664525L * *seed) + 1013904223L;  /* Numerical recipes */
+
+    return *seed;
 }
 
-
 static void gen_rand_vector(float *spec, int size, long *state)
-/* Noise generator, generating vector with unity energy */
 {
     int i;
-    float s, norm, nrg= 0.0;
 
-    norm = 1.0f / (float)sqrt( size * MEAN_NRG );
-
-    for (i=0; i<size; i++)
+    for (i = 0; i < size; i++)
     {
-        random2(state);
-        spec[i] = (float)(*state * norm);
-        nrg += spec[i] * spec[i];
+        spec[i] = (float)random2(state);
     }
-
-    s = 1.0f / (float)sqrt( nrg );
-    for (i=0; i<size; i++)
-        spec[i] *= s;
 }
 
 
@@ -78,9 +69,11 @@ void pns(faacDecHandle hDecoder, MC_Info *mip, Info *info, int widx, int ch,
 {
     Ch_Info *cip = &mip->ch_info[ch];
     Float   *spec, *fp, scale;
-    int     cb, corr_flag, sfb, n, nn, b, bb, nband;
+    int     cb, sfb, n, nn, b, bb, nband;
     int   *band;
     long    *nsp;
+
+    static int state = 1;
 
     /* store original predictor flags when left channel of a channel pair */
     if ((cip->cpe  &&  cip->ch_is_left  &&  info->islong))
@@ -93,7 +86,6 @@ void pns(faacDecHandle hDecoder, MC_Info *mip, Info *info, int widx, int ch,
             lpflag[sfb+1] = hDecoder->lp_store[sfb+1];
 
     spec = coef[ ch ];
-    nsp = hDecoder->noise_state_save;
 
     /* PNS goes by group */
     bb = 0;
@@ -113,26 +105,20 @@ void pns(faacDecHandle hDecoder, MC_Info *mip, Info *info, int widx, int ch,
                     /* disable prediction (only important for long blocks) */
                     if (info->islong)  lpflag[1+sfb] = 0;
 
-                    /* determine left/right correlation */
-                    corr_flag = (cb != NOISE_HCB);
-
                     /* reconstruct noise substituted values */
                     /* generate random noise */
                     fp = spec + n;
-                    if (corr_flag)  {
-                        /* Start with stored state */
-                        gen_rand_vector( fp, nn-n, nsp+sfb );
-                    } else {
-                        /* Store current state and go */
-                        nsp[sfb] = hDecoder->cur_noise_state;
-                        gen_rand_vector( fp, nn-n, &hDecoder->cur_noise_state );
-                    }
+                    gen_rand_vector(fp, nn-n, &state);
 
-                    /* scale to target energy */
-                    scale = (float)pow( 2.0, 0.25*(factors[sfb]) );
-                    for (; n < nn; n++) {   /* n is coef index */
+                    /* 14496-3 says:
+                       scale = 1.0f/(size * (float)sqrt(MEAN_NRG));
+                     */
+                    scale = 1.0f/(float)sqrt((nn-n) * MEAN_NRG);
+                    scale *= (float)pow(2.0, 0.25*factors[sfb]);
+
+                    /* Scale random vector to desired target energy */
+                    for (; n < nn; n++)
                         *fp++ *= scale;
-                    }
                 }
                 n = nn;
             }

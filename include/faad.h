@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: faad.h,v 1.16 2001/10/26 11:57:00 menno Exp $
+ * $Id: faad.h,v 1.17 2002/01/04 13:34:28 menno Exp $
  */
 
 #ifndef _AACDEC_H
@@ -41,6 +41,11 @@ extern "C" {
 #define FAAD_OK_CHUPDATE 1
 #define FAAD_ERROR 2
 #define FAAD_FATAL_ERROR 3
+
+#define MAIN 0
+#define LC   1
+#define SSR  2
+#define LTP  3
 
 typedef void *faacDecHandle;
 typedef void *faacProgConfig;

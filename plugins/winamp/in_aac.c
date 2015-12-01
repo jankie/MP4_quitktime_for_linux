@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: in_aac.c,v 1.8 2001/10/26 12:38:04 menno Exp $
+ * $Id: in_aac.c,v 1.10 2001/10/26 23:31:14 menno Exp $
  */
 
 #define WIN32_MEAN_AND_LEAN
@@ -85,6 +85,8 @@ char *priority_text[] = {	"",
 						};
 
 long priority_table[] = {0, THREAD_PRIORITY_LOWEST, THREAD_PRIORITY_BELOW_NORMAL, THREAD_PRIORITY_NORMAL, THREAD_PRIORITY_ABOVE_NORMAL, THREAD_PRIORITY_HIGHEST};
+
+long current_file_mode = 0;
 
 void config(HWND hwndParent)
 {
@@ -227,7 +229,7 @@ void init()
 	hInstance_for_id3editor = mod.hDllInstance;
 
     sample_buffer = (char*)LocalAlloc(LPTR, 1024*2*(16/8)*sizeof(char));
-
+    buffer = (unsigned char*)LocalAlloc(LPTR, 768*2);
     lastfn = (char*)LocalAlloc(LPTR, 1024*sizeof(char));
 
     /* Initialize winsock, necessary for streaming */
@@ -271,7 +273,6 @@ void init()
 void quit()
 {
     if (lastfn) LocalFree(lastfn);
-    if (seek_table) LocalFree(seek_table);
     if (sample_buffer) LocalFree(sample_buffer);
     if (buffer) LocalFree(buffer);
 
@@ -312,7 +313,7 @@ int play_memmap(char *fn)
 
     fileread = filelength_filestream(infile);
 
-    memmap_buffer = (char*)malloc(fileread);
+    memmap_buffer = (char*)LocalAlloc(LPTR, fileread);
     read_buffer_filestream(infile, memmap_buffer, fileread);
     memmap_index = 0;
 
@@ -342,7 +343,6 @@ int play_file(char *fn)
     int k;
     int tagsize;
 
-    buffer = (unsigned char*)LocalAlloc(LPTR, 768*2);
     ZeroMemory(buffer, 768*2);
 
     infile = open_filestream(fn);
@@ -410,10 +410,15 @@ int play(char *fn)
     int maxlatency;
     int thread_id;
 
-    if (memmap_file)
-        play_memmap(fn);
-    else
-        play_file(fn);
+    current_file_mode = memmap_file;
+
+    if (current_file_mode) {
+        if (play_memmap(fn))
+            return -1;
+    } else {
+        if (play_file(fn))
+            return -1;
+    }
 
 	if(seek_table)
 	{
@@ -500,8 +505,7 @@ void stop()
     mod.outMod->Close();
     mod.SAVSADeInit();
 
-    if (buffer) free(buffer);
-    if (memmap_buffer) free(memmap_buffer);
+    if (memmap_buffer) LocalFree(memmap_buffer);
 	if(seek_table)
 	{
 		free(seek_table);
@@ -533,7 +537,7 @@ int aac_seek(int pos_ms, int *sktable)
     double offset_sec;
 
     offset_sec = pos_ms / 1000.0;
-    if (!memmap_file)
+    if (!current_file_mode)
     {
         seek_filestream(infile, sktable[(int)(offset_sec+0.5)], FILE_BEGIN);
 
@@ -854,7 +858,7 @@ DWORD WINAPI PlayThread(void *b)
             }
             else
             {
-                if (memmap_file)
+                if (current_file_mode)
                     bytesconsumed = PlayThread_memmap();
                 else
                     bytesconsumed = PlayThread_file();

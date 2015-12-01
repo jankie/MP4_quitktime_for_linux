@@ -16,7 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
- * $Id: faad.c,v 1.27 2001/10/26 11:57:00 menno Exp $
+ * $Id: faad.c,v 1.28 2001/12/27 15:23:22 menno Exp $
  */
 
 #ifdef _WIN32
@@ -95,6 +95,7 @@ void usage(void)
     fprintf(stderr, "Options:\n");
     fprintf(stderr, " -h    Shows this help screen.\n");
     fprintf(stderr, " -s X  Force the samplerate to X (for RAW files).\n");
+    fprintf(stderr, " -l    Use Long Term Prediction (for RAW files).\n");
     fprintf(stderr, " -o X  Sets the output directory to X.\n");
     fprintf(stderr, " -w    Write output to stdio instead of a file.\n");
     fprintf(stderr, "Example:\n");
@@ -108,7 +109,7 @@ int main(int argc, char *argv[])
     int k;
     short sample_buffer[1024*MAX_CHANNELS];
     int writeToStdio = 0, out_dir_set = 0;
-    int def_sr_set = 0;
+    int def_sr_set = 0, use_ltp = 0;
     int def_srate;
     int showHelp = 0;
     char *fnp;
@@ -149,11 +150,12 @@ int main(int argc, char *argv[])
         static struct option long_options[] = {
             { "outputdir",  0, 0, 'o' },
             { "samplerate", 0, 0, 's' },
+            { "ltp",        0, 0, 'l' },
             { "stdio",      0, 0, 'w' },
             { "help",       0, 0, 'h' }
         };
 
-        c = getopt_long(argc, argv, "o:s:wh",
+        c = getopt_long(argc, argv, "o:s:whl",
             long_options, &option_index);
 
         if (c == -1)
@@ -190,6 +192,10 @@ int main(int argc, char *argv[])
         }
         case 'w': {
             writeToStdio = 1;
+            break;
+        }
+        case 'l': {
+            use_ltp = 1;
             break;
         }
         case 'h': {
@@ -251,6 +257,8 @@ int main(int argc, char *argv[])
     config = faacDecGetCurrentConfiguration(hDecoder);
     if (def_sr_set)
         config->defSampleRate = def_srate;
+    if (use_ltp)
+        config->defObjectType = LTP;
 
     faacDecSetConfiguration(hDecoder, config);
 

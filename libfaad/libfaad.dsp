@@ -166,10 +166,6 @@ SOURCE=.\All.h
 # End Source File
 # Begin Source File
 
-SOURCE="E:\Program Files\Microsoft Visual Studio\VC98\Include\BASETSD.H"
-# End Source File
-# Begin Source File
-
 SOURCE=.\bits.h
 # End Source File
 # Begin Source File

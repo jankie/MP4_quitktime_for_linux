@@ -22,7 +22,7 @@ Copyright(c)1996.
  *                                                                           *
  ****************************************************************************/
 /*
- * $Id: dolby_adapt.c,v 1.16 2001/09/07 19:05:46 menno Exp $
+ * $Id: dolby_adapt.c,v 1.17 2001/12/26 23:19:29 menno Exp $
  */
 
 #ifdef WIN32
@@ -523,6 +523,19 @@ void time2freq_adapt(faacDecHandle hDecoder,
     *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
 
     }
+    }
+
+    srcPtr = freqOutPtr;
+    destPtr = ffreqOutPtr;
+  for (i = BLOCK_LEN_LONG/16-1; i>=0;--i)  {
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
+    *destPtr++ = *srcPtr++;     *destPtr++ = *srcPtr++;
     }
 
     FreeMemory(freqOutPtr);
