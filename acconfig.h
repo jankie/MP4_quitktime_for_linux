@@ -1,0 +1,2 @@
+#undef HAS_ULONG
+

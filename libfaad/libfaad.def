@@ -1,0 +1,12 @@
+LIBRARY  libfaad.dll
+EXPORTS
+;
+; libfaad exports
+;
+faacDecOpen                      @1
+faacDecGetCurrentConfiguration   @2
+faacDecSetConfiguration          @3
+faacDecInit                      @4
+faacDecGetProgConfig             @5
+faacDecDecode                    @6
+faacDecClose                     @7

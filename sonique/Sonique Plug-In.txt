@@ -1,0 +1,42 @@
+
+Sonique AAC Plug-In
+===================
+
+By Nic
+
+
+Version 1.5
+-----------
+
+Is now compatible with faad1.5
+
+
+Acknowledgements:
+Menno, Rage, Tony, et al - for more than obvious reasons
+Ivan Dimkovic - for just as obvious a reason
+
+McCann at the Sonique Team - Thanx for letting me nag you
+Jack Moffit (iCast) - for helping me chase the Sonique Team.
+
+
+Installation
+------------
+Compile by loading sonique.dsp into Visual C++ v6
+the compiled file is aac.sqp
+copy this to your sonique (should be version 1.9!) system directory
+i.e. c:\sonique\system
+
+If after attempting to fail try compiling using a different setting (i.e. release or debug)
+- both work on mine fine - but i know that there could be problems with either release or debug (it is due to the run-time library - i.e. preferences->c/c++->code generation)
+
+
+Bugs
+----
+
+Hmmm.......probably needs lots of testing send all bugs and how to replicate them to:
+nic@vampirehunter.com
+
+and I will fix them ASAP - dont bother Menno with them as he shouldn't have to answer to
+my rushed coding!
+
+-Nic.

@@ -1,0 +1,2 @@
+SUBDIRS = libfaad frontend
+

@@ -1,0 +1,688 @@
+2001-08-31  menno
+		Little bugfix in intialising an array
+
+2001-08-18  rageomatic
+		speed and streaming updates
+
+2001-07-10  menno
+		Added Sonique plugin (written by Nic)
+
+2001-07-09  menno
+		Added project file for compiling faad as a DLL
+
+2001-07-03  rageomatic
+		Added OK and Cancel buttons
+
+2001-07-02  menno
+		Fix for using faac and faad in the same program
+
+2001-07-01  rageomatic
+		Small bug with the variable bitrate check box
+
+		Added buffering options
+
+2001-06-28  rageomatic
+		Updated configuration UI. A few new features.
+
+2001-06-27  menno
+		Basically all ID3 text frames are read now
+
+		Unix compile fix
+
+		Redone ID3v2 reading
+		Every field will be shown now
+
+2001-06-26  menno
+		Compile fix under Unix
+
+2001-06-25  menno
+		Fixed assertion failure
+
+		Compilation help
+
+2001-06-22  menno
+		Some compatibility issues are removed .
+		A bug removed.
+		Better Error messages
+		Some comments in the source.
+		In-Place correction possible.
+		Needs ANSI + POSIX 1.0.
+		Thanks to Frank Klemm
+
+2001-06-12  menno
+		bugfix
+
+		new option parsing
+
+2001-06-11  menno
+		removed assert()
+
+2001-06-10  menno
+		Small cleanup
+
+		Fixed memory leaking
+		Output to stderr, so that writing to stdio still gives some info on screen
+
+		Now showing percentage while decoding
+
+2001-06-09  menno
+		Added util to remove PsyTEL tags
+
+2001-06-08  menno
+		File renamed
+
+		Added license files for third party code
+
+		Fixed linux compilation
+
+2001-06-07  menno
+		Made changes to the configuration structure.
+		Now the default samplerate and object type can be set for use with headerless AAC files
+
+2001-06-06  menno
+		Small cleanup
+
+		(I hope I have) fixed MPEG4 compatibility once and for all ;-)
+
+2001-06-01  menno
+		Fixed seeking for MPEG4 files
+
+2001-05-30  menno
+		Changed license from GPL to LPGL
+
+		Added CR
+
+2001-05-29  menno
+		Small changes to the info box
+		Disabled seeking for MPEG4 AAC files temporarily
+
+		Fixed linux compilation
+
+2001-05-28  menno
+		Inclusion of id3lib
+
+		Bug fixes and some changes for nicer compilation (Thanks to
+		Bill May from MPEG4IP)
+
+		Support for reading of some ID3v2 tag fields (not all yet)
+
+		Changes for ISO MPEG4 compatibility (sorry :(( )
+		Old MPEG4 files with ADTS header will not be playable anymore
+
+		Fixed installer so that id3lib.dll gets copied to the system directory
+
+2001-05-20  menno
+		Small code cleanup
+
+		New file info dialog, just got to implement ID3v2 tags now.
+
+2001-05-17  menno
+		Added decoder library documentation
+
+2001-05-14  menno
+		Added MP4 file library
+		and an utilitie to create MP4 files from aac files and one for extracting audio from a MP4 file
+
+2001-05-11  oxygene2000
+		 New makesystem for unix-like systems based on autoconf/-make
+		and libtool
+
+		- didn't compile on !win32 because of missing ;
+
+2001-05-09  menno
+		More stable winamp plugin, stopping a file should work correctly now
+		Fixed NSIS install script to avoid warnings
+
+2001-05-02  menno
+		Removed unused file stdinc.h
+
+		Added correct copyright statements
+		Restored thread safety
+
+2001-04-29  rageomatic
+		Speed, stability and streaming improvements.
+
+		Slight speed improvements.
+
+2001-04-27  menno
+		Made most buffers dynamically allocated
+
+		Added compile option for Intel signal processing library
+
+2001-04-26  menno
+		Fixes for streaming
+		Windows API used instead of standard library
+
+2001-04-25  menno
+		Changed command line option -o, so that it supports directories
+		with spaces
+
+2001-04-25  rageomatic
+		New streaming design, uses Winsock instead of WinInet now.
+
+2001-04-24  menno
+		Multichannel decoding support
+
+2001-04-23  menno
+		Better file buffering for winamp plugin
+		Better windows API support
+
+2001-04-22  menno
+		Added backward prediction
+		FAAD can now decode MAIN profile AAC files
+
+		Made backward prediction thread safe too
+
+		Added util.c file for helper functions
+
+		Bug fix
+
+2001-04-21  menno
+		Changes to library interface
+		-better error handling
+		-better multichannel support
+
+		More multichannel fixes
+
+		Better DSE and FIL element support
+
+		Last change to library interface
+
+2001-04-20  menno
+		Fixed ADIF decoding
+
+2001-04-19  menno
+		FFT code is thread safe now too
+
+		Made code thread safe.
+		Only FFT code has to be done now.
+
+		Changes in MPEG4 file format, mainly comments for clarification
+
+2001-04-16  menno
+		Higher thread priority for plugin
+		Makefile fixed
+
+2001-04-11  menno
+		Fixed MPEG4 object type problem
+		Use new adtsfix util to make old AAC file playable again
+
+		Small updates
+
+2001-04-10  menno
+		- major code cleanup
+		- better error handling
+		- tables used for KBD window when WIN_TABLE defined
+		- Somewhat better thread safety (not nearly thread safe, but a lot of data has moved)
+
+		Added adts_error_check
+
+		small fix
+
+		Better error recovery for ADTS files
+
+		Fixed another MPEG4/2 issue TNS order
+
+		Removed http streaming for now, somehow it didn't work anymore
+		fix will come later
+
+2001-04-06  menno
+		Bugfixes
+
+		Faster bit reading routines
+
+2001-04-05  menno
+		Fixed Mpeg2 bug
+
+		ADTSFIX utility for fixing old AAC files
+
+2001-04-04  menno
+		Another filterbank speedup
+
+		Speedup in roundof
+
+		Speedup in filterbank
+
+2001-04-03  menno
+		Big changes to library interface
+
+		(more) correct decoding of mpeg2-aac
+
+2001-03-30  menno
+		Bugfix
+
+2001-03-29  menno
+		Speedup (thanks to Ivan)
+
+		Simple file check so that plugin doesn't crash if file doesn't exist
+
+		Major bugfix in bits.c, no more weird output :)
+
+2001-03-22  menno
+		Clipping problem fixed
+
+2001-03-20  menno
+		Bugfixes
+
+2001-03-19  menno
+		Bugfixes, mainly in channel configuration and file properties
+		Correct decoding of files other that 44.1kHz and 2 channels now
+
+		Moved Winamp plugin to separate directory
+
+2001-03-18  menno
+		Added NSIS (www.nullsoft.com) installation script
+
+2001-03-13  menno
+		Added .cvsignore
+
+		Made info dialog resource, although not used yet
+
+2001-02-26  menno
+		Big changes to library interface
+
+		Now correctly handles files with ID3v2 tags (they are not read
+		 but get ignored)
+
+2001-02-26  oxygene
+		Updated sourcelist
+
+2001-02-25  menno
+		Fixed a little mistake
+
+		Small changes
+
+		Added calculation of KBD window
+
+2001-02-22  menno
+		Started to make the library read from buffer instead of file, not nearly completed yet.
+		Faster seeking.
+
+		Small fixes: some of latest changes didn't seem to work so well
+		....
+
+		Fixed time calculation (I hope...)
+		Files should end correctly now in Winamp
+		Some other small fixes
+
+2001-02-18  menno
+		Removed multiple raw_data_block decoding from ADTS files, 
+		because it screwed up seeking. Will try to fix it later
+
+		Fixed library project files
+
+2001-02-16  oxygene
+		Defines common functions, for now only CommonWarning and
+		CommonExit.
+
+		Added common.c to sourcelist.
+
+		CommonWarning and CommonExit moved to library. Small unix
+		changes.
+
+		Small change, added environment variable CFLAGS.
+
+2001-02-16  menno
+		Small changes
+
+		Restructured Huffman decoding
+
+2001-02-14  menno
+		Fixed decoding of files with more than 1 raw_data_block in a
+		ADTS frame
+
+2001-02-14  oxygene
+		Install and uninstall target added.
+
+2001-02-12  menno
+		Fixed clipping problem
+
+2001-02-11  menno
+		Oops
+
+		LTP decoding now ISO compliant
+
+		Decoder speedup, might have destroyed correct decoding of LTP, 
+		fix it tomorrow. Now go to sleep.
+
+2001-02-10  menno
+		Inlined function
+
+2001-02-06  oxygene2000
+		- add new aacinfo.c to Makefile
+
+2001-02-05  menno
+		Small fixes
+
+		Redone some of latest changes that got lost in last commit
+
+		Removed __inline from function
+
+		Large decoder changes
+
+		Fixed plugin
+
+2001-02-04  oxygene2000
+		- Makefiles for un*x
+		- some fixes for ansi-c compliance
+
+2001-02-01  menno
+		Reorganisation of code. FAAD is now a library
+
+2000-11-10  menno
+		Added debug output for testing. define TEST_OUTPUT
+
+2000-10-04  menno
+		LFE is now working correctly
+
+2000-10-03  menno
+		Multichannel fixes. All working now, except LFE channels
+
+2000-10-01  menno
+		LFE channel fixup
+
+		Now multichannel decoding is working.
+		Not very clean yet, it still needs more work.
+
+2000-09-28  menno
+		Release updates
+
+2000-09-08  oxygene
+		Changed install instructions and XMMS plugin homepage.
+
+		faad and shared library can now be compiled at the same time.
+
+2000-08-28  oxygene
+		Removed references to libsndfile
+
+2000-08-24  menno
+		Fixed Linux compile (I hope)
+
+2000-08-22  rageomatic
+		A start for a configuation dialog
+
+2000-08-22  menno
+		Small fix
+
+2000-08-21  rageomatic
+		fixed some issues that created problems for linux users.
+
+		Fixed some link issues
+
+2000-08-19  rageomatic
+		Improved .wav file writing. libsndfile is not required anymore.
+
+2000-08-17  rageomatic
+		Winamp plugin complete. Streaming and seeking supported :D
+
+		New wav writing interface and new AAC file input interface.
+
+		removed the need for libsndfile
+
+		Improved i/o interface, streaming added for Win32, and a few
+		small optimizations.
+
+2000-08-11  prkoat
+		For support of mono and stereo.
+		Fixed quite a number of bugs in the Winamp Plugin.  (Esp.  File Critical Section
+		   when getting AAC info while playing the file.)
+		Fixed a bug when that occurs when decoding many files with different
+		   channel configurations.
+		
+		prkoat
+
+2000-08-10  menno
+		Bugfix 1048 -> 1024
+
+2000-07-22  prkoat
+		Support for SCE (mono files)
+
+2000-05-18  pouwelse
+		For compiling on the Arm architecture a new Makefile is
+		included.
+
+2000-04-10  rageomatic
+		Added HTTP streaming, disabled for now though.
+
+		Fixed playlist bug, disabled the display of changing bitrates
+
+2000-03-23  lenox
+		restored gain control bits in the stream
+
+2000-03-23  menno
+		Added double_to_int macro
+
+2000-03-12  lenox
+		removed gain control
+
+		changed win32 defines
+
+2000-02-27  rageomatic
+		moved double_to_int macro
+
+		final rounding uses double_to_int macro
+
+		moved double_to_int
+
+		small fix with HTTP streams
+
+2000-02-23  thebard
+		Profiling cruff.
+
+2000-02-22  thebard
+		Added note about compilation options.
+
+		Just added a superflous __inline before getbits. It looks like
+		gcc is already auto inlining getbits with -O3 or higher. This
+		is jsut forcing it to on other compilers, or if gcc is being
+		stupid.
+
+		Update the Recomended compile opts.
+
+2000-02-22  menno
+		Restored PNS quality
+
+		Fixed WIN32 compilation
+
+2000-02-21  lenox
+		calculation of play length is correct now only for 128kbps (
+		with ADTS headers).
+
+2000-02-20  thebard
+		Added a note regarding the XMMS aac plugin, and that you MUST use the cvs
+		version of the plugin to get things to work correctly.
+
+		Initial work on profiling. I think I can squeeze more speed. 
+		Started a profiling log so we can chart the speed increases.
+
+		Our first speedup. 5.12%.
+
+		More profiling tweakings. Not much exciting.
+
+		 Macroized getbits. It was slower than gcc's automatic inlining
+		of getbits. If I explictly inline getbits its the same as if
+		gcc inlined it. Go figure. Anyways, I think get bits is a lost
+		cause, unless we inline asm it. Even with assembly its not
+		gonna speed up alot. looking at the .s files, it looks like the
+		compiler is already doing a pretty good job. We need to figure
+		out how to do getbits more than jsut one at a whack.
+
+2000-02-19  lenox
+		removed 2048 and 256 FFT
+
+		fixed calculation of playing length in plugin
+
+2000-02-19  thebard
+		Added -w for writing to stdout. It works, but there is a bit of static
+		at teh beginning and end as the printf's of version and such are adding
+		garbage into the the stdout. I'll fix it shortly.
+
+		Ripped out all the \r's so that things print correctly on unix
+		boxen.
+
+		Reorganized so that there is no output except the raw wav data when -w is
+		on the command line.
+
+2000-02-19  oxygene
+		Corrected a typo in uninstall section.
+
+		ldconfig is now only run when it should
+
+2000-02-19  rageomatic
+		added my email
+
+		removed useless libraries from build (winspool.lib, odbc
+		libraries, etc)
+
+		removed useless libraries (to make binaries smaller)
+
+		changed and optimized vector generation routine
+
+2000-02-18  thebard
+		Fixed the unix timing problem.
+
+2000-02-18  menno
+		RageAMP's latest changes
+
+2000-02-18  oxygene
+		New name for readme
+
+		File renamed to README
+
+		Changed function GetInputFileLength to comply with ANSI C
+		standard.
+
+2000-02-17  thebard
+		Makefile now uses the env variable CFLAGS (like msot sname
+		makefiles do) for compiler flags. -g and -DHAS_ULONG are still
+		hard coded.
+
+2000-02-17  menno
+		Little fix
+
+		Added seeking support for files with ADTS headers
+
+2000-02-16  oxygene
+		Used install command to do the same task.
+
+		Install command used in install section instead of .
+		mkinstalldirs, faad.h added to install section, uninstall
+		section added.
+
+		gcc set as default compiler.
+
+2000-02-15  menno
+		Bugfix and ADTS now used in info box
+
+		Added preliminary reading of ADTS headers
+
+		Bug fixed
+
+2000-02-11  lenox
+		cleanup
+
+2000-02-10  rageomatic
+		cleanup, minor optimization
+
+		cleanup
+
+2000-02-07  oxygene2000
+		Make it compileable with linux (#ifdef WIN32)
+
+2000-01-22  rageomatic
+		some cleanup
+
+		some cleanup, got rid of all references to 'int stop_now'
+
+		some cleanup, minor changes
+
+		got rid of register and static variable in InitBlock
+
+2000-01-21  menno
+		Updated readme
+
+		Version upgraded
+
+2000-01-19  menno
+		LTP fixed and some minor changes
+
+2000-01-14  menno
+		Fixed bitrate indicator
+
+		Big cleanup
+
+2000-01-13  oxygene
+		Linux shell script to make install dirs.
+
+		New name for aacdec.h
+
+		*** empty log message ***
+
+		Corrected a wrong type
+
+		Changed aacdec.h --> faad.h
+
+		Changed aacdec --> faad, added mkinstalldirs in install target
+
+2000-01-10  rageomatic
+		some cleanup
+
+		cleared function declarations that werent referenced and/or exist
+
+		removed the unreferenced 'void extra_init()'
+
+2000-01-09  lenox
+		new dirs for output
+
+		fixed bug with second channel and initialization in  LTP
+
+2000-01-09  menno
+		Bugfix
+
+		restored previous change
+
+2000-01-09  rageomatic
+		changed output of aac_decode_frame(...)
+
+2000-01-08  lenox
+		some cleanup
+
+		added pns.c
+
+		removed 'static' from global vars and functions
+
+2000-01-06  menno
+		Added support for Perceptual Noise Substitution (PNS).
+
+2000-01-06  lenox
+		new restructured FFT and MDCT
+
+2000-01-05  menno
+		Added Long Term Prediction, the decoder will now not play files
+		encoded with backward prediction. But previous versions of FAAC
+		never used it.
+
+		Files for LTP
+
+		Removed backward prediction
+
+2000-01-03  oxygene
+		Added lib and install target.
+
+		Installation instructions for linux.
+
+2000-01-03  menno
+		Keeping winamp plugin compilable
+
+2000-01-02  oxygene
+		*** empty log message ***
+
+		#ifdef WIN32 added
+
+1999-12-20  lenox
+		added fastifft.c
+
+		new IFFT
+
+		added reference to transfo module
+
